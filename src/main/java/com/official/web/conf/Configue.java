@@ -104,14 +104,14 @@ public class Configue extends WebMvcConfigurerAdapter {
 		return new StringRedisTemplate(connectionFactory);
 	}*/
 
-	//中文编码配置
+	/*//中文编码配置
 	@Bean
 	public Filter characterEncodingFilter() {
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");
 		characterEncodingFilter.setForceEncoding(true);
 		return characterEncodingFilter;
-	}
+	}*/
 	//日期转换
 	/*@Bean
 	public ConversionService formattingConversionService() {
