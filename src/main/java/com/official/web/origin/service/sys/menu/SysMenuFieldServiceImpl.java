@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.service.sys.menu;
+package com.official.web.origin.service.sys.menu;
 
 import java.util.List;
 import java.util.Map;
