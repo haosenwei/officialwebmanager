@@ -2,6 +2,7 @@ package com.official.web.conf;
 
 
 import java.io.IOException;
+import java.util.Properties;
 
 import javax.servlet.Filter;
 import javax.sql.DataSource;
@@ -44,8 +45,10 @@ public class Configue extends WebMvcConfigurerAdapter {
 	private String typeAliasPackage;   
 
 	@Bean
-	public DataSource dataSource() {
-		HikariConfig config = new HikariConfig(getClass().getClassLoader().getResource("db.properties").getPath());
+	public DataSource dataSource() throws IOException {
+		Properties properties = new Properties();
+		properties.load(getClass().getResourceAsStream("/db.properties"));
+		HikariConfig config = new HikariConfig(properties);
 //		HikariConfig config = new HikariConfig();
 //		config.setMaximumPoolSize(db_max_conn);
 //		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
@@ -104,14 +107,14 @@ public class Configue extends WebMvcConfigurerAdapter {
 		return new StringRedisTemplate(connectionFactory);
 	}*/
 
-	/*//中文编码配置
+	//中文编码配置
 	@Bean
 	public Filter characterEncodingFilter() {
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");
 		characterEncodingFilter.setForceEncoding(true);
 		return characterEncodingFilter;
-	}*/
+	}
 	//日期转换
 	/*@Bean
 	public ConversionService formattingConversionService() {
