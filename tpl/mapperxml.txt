@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${prefix}.mapper${spacePrefix}.${EntityName}Mapper">
+	<resultMap id="${EntityName}Bean" type="${prefix}.entity${spacePrefix}.${EntityName}">
+		<#list list as obj>
+		<<#if obj.keyDic=="1">id<#else>result</#if> property="${obj.fieldName}" column="${obj.field_name}" jdbcType="${obj.javaTypeU}" />
+		</#list>
+	</resultMap>
+	
+	<sql id="${EntityName}SelectColumns">
+		<#list list as obj>
+		t.${obj.field_name} <#if obj?has_next>,</#if>
+		</#list>
+	</sql>
+	<sql id="dynamicWhere">
+		<#list list as obj>
+		<if test=" ${obj.fieldName} != null and ${obj.fieldName} != '' ">
+			and t.${obj.field_name} = ${r"#"}{${obj.fieldName}}
+		</if>
+		</#list>
+		<if test=" dataScope !=null and dataScope != '' ">
+			and ${r"#"}{dataScope}
+		</if>
+	</sql>
+
+	<!-- 根据 id 查询${comment!}对象 -->
+	<select id="select${EntityName}ById" parameterType="map" resultMap="${EntityName}Bean">
+		select <include refid="${EntityName}SelectColumns" />
+		from ${table_name} t
+		<#list list as obj><#if obj.keyDic=="1">where t.${obj.field_name}=${r"#{id}"}</#if></#list>
+		
+	</select>
+	
+	<!-- 查询所有${comment!}对象 -->
+	<select id="select${EntityName}All" resultMap="${EntityName}Bean">
+		select <include refid="${EntityName}SelectColumns" />
+		from ${table_name} t
+	</select>
+
+	<!-- 插入${comment!}对象 主键自动生成 -->
+	<insert id="insert${EntityName}" keyProperty="id" useGeneratedKeys="true" parameterType="Map">
+		insert into ${table_name}
+		(
+			<#list list as obj>
+			${obj.field_name}<#if obj?has_next>,</#if> 
+			</#list>
+		)
+		values( 
+			<#list list as obj>
+			${r"#"}{${obj.fieldName}}<#if obj?has_next>,</#if> 
+			</#list>
+		)
+	</insert>
+
+	<!-- 更新${comment!}对象 -->
+	<update id="update${EntityName}" parameterType="Map">
+		update ${table_name} set
+		<#list list as obj>
+		${obj.field_name} = ${r"#"}{${obj.fieldName}}<#if obj?has_next>,</#if>
+		</#list>
+		where<#list list as obj><#if obj.keyDic=="1"> ${obj.field_name}=${r"#"}{${obj.fieldName}}</#if></#list>
+	</update>
+	
+	<!-- 删除${comment!}对象 -->
+	<delete id="del${EntityName}ByIds" parameterType="Map">
+		delete from ${table_name} where <#list list as obj><#if obj.keyDic=="1">${obj.field_name}</#if></#list> in (${r"$"}{ids})
+	</delete>
+
+	<!-- 根据 条件 查询${comment!}对象 -->
+	<select id="select${EntityName}ByCondition" parameterType="Map" resultMap="${EntityName}Bean">
+		select <include refid="${EntityName}SelectColumns" />
+		from ${table_name} t
+		where 1 = 1 <include refid="dynamicWhere" />
+	</select>
+	
+	<!-- 根据 条件更新${comment!}对象 -->
+	<update id="update${EntityName}ByCondition" parameterType="Map">
+		update ${table_name}
+		<set>
+			<#list list as obj>
+			<if test=" ${obj.fieldName} !=null and ${obj.fieldName} != '' ">
+				${obj.field_name} = ${r"#"}{${obj.fieldName}}<#if obj?has_next>,</#if>
+			</if>
+			</#list>
+		</set>
+		where 1=1
+			<#list list as obj>
+			<if test=" ${obj.fieldName}Condition !=null and ${obj.fieldName}Condition != '' ">
+				and ${obj.field_name} = ${r"#"}{${obj.fieldName}Condition}<#if obj?has_next>,</#if>
+			</if>
+			</#list>
+	</update>
+	
+	<!--  begin分页查询 -->
+	<!-- 根据条件查询分页数据 -->
+	<select id="select${EntityName}ByPager" parameterType="Map" resultMap="${EntityName}Bean">
+		select <include refid="${EntityName}SelectColumns" />
+		from ${table_name} t
+		where 1 = 1 <include refid="dynamicWhere" />
+		limit ${r"#"}{start}, ${r"#"}{length}
+	</select>
+	
+	<!-- 根据条件查询${comment!}对象数量 -->
+	<select id="select${EntityName}CountByPager" parameterType="Map" resultType="int">
+		select
+		count(1)
+		from ${table_name}
+		where 1 = 1 <include refid="dynamicWhere" />
+	</select>
+	<!-- end 分页查询 -->
+</mapper>

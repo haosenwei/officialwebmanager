@@ -1,0 +1,35 @@
+package ${prefix}.entity${spacePrefix};
+
+import java.io.Serializable;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * ${comment!}实体类
+ * 
+ * @author ${author!}
+ *
+ */
+public class ${EntityName} implements Serializable {
+
+	<#list list as obj>
+	
+	/** ${obj.comment!} */
+	private ${obj.javaType} ${obj.fieldName};
+	</#list>
+	
+	<#list list as obj>
+	/** get ${obj.comment} ***/<#if obj.format?? >
+	${obj.format}</#if>
+	public ${obj.javaType} get${obj.fieldNameU}() {
+		return ${obj.fieldName};
+	}
+	
+	/** set ${obj.comment} ***/
+	public void set${obj.fieldNameU}(${obj.javaType} ${obj.fieldName}) {
+		this.${obj.fieldName} = ${obj.fieldName};
+	}
+	</#list>
+	
+}

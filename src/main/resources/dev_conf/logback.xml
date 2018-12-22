@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="3 seconds">
+    <contextName>p2s</contextName>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:/hao/tmp/p2sLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    <!--    <appender-ref ref="MONGODB"/>-->
+    </root>
+
+    <logger name="com.go4mi" level="INFO"/>
+    <logger name="org.springframework.amqp.rabbit.listener.BlockingQueueConsumer" level="INFO"/>
+
+    <!-- mybatis 打印sql语句 -->
+    <logger name="com.go4mi.original.mapper" level="DEBUG"/>
+    <logger name="com.go4mi.mapper" level="DEBUG"/>
+	
+</configuration>
+

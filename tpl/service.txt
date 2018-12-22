@@ -1,0 +1,99 @@
+﻿package ${prefix}.service${spacePrefix};
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import ${prefix}.entity.common.Pager;
+import ${prefix}.entity${spacePrefix}.${EntityName};
+import ${prefix}.mapper${spacePrefix}.${EntityName}Mapper;
+import ${prefix}.service.IService;
+
+/**
+ * ${comment!}服务实现类
+ * @author ${author}
+ *
+ */
+@Service
+@Transactional
+public class ${EntityName}ServiceImpl implements IService {
+
+	/**${comment!}实体操作类**/
+	@Autowired
+	private	${EntityName}Mapper ${entityName}Mapper;
+
+	/**
+	 * 根据id查询${comment!}实体
+	 * @param id
+	 * @return
+	 */
+	public ${EntityName} find${EntityName}ById(<#list list as obj><#if obj.keyDic=="PRI">${obj.javaType}</#if></#list> id) {
+		return ${entityName}Mapper.select${EntityName}ById(id);
+	}
+	
+	/**
+	 * 查询所有${comment!}实体
+	 * @return
+	 */
+	public List<${EntityName}> findEntityAll() {
+		return ${entityName}Mapper.select${EntityName}All();
+	}
+	
+	/**
+	 * 新增${comment!}实体
+	 * @param ${entityName}Form
+	 */
+	public void add${EntityName}(${EntityName} ${entityName}Form) {
+		${entityName}Mapper.insert${EntityName}(${entityName}Form);
+	}
+
+	/**
+	 * 更新${comment!}实体
+	 * @param ${entityName}Form
+	 */
+	public void modify${EntityName}(${EntityName} ${entityName}Form) {
+		${entityName}Mapper.update${EntityName}(${entityName}Form);
+	}
+
+	/**
+	 * 根据条件更新${comment!}实体
+	 * @param condition
+	 */
+	public void modify${EntityName}ByCondition(Map<String, Object> condition) {
+		${entityName}Mapper.update${EntityName}ByCondition(condition);
+	}
+
+	/**
+	 * 根据ids删除${comment!}实体
+	 * @param ids
+	 */
+	public void remove${EntityName}ByIds(String ids) {
+		${entityName}Mapper.del${EntityName}ByIds(ids);
+	}
+	
+	/**
+	 * 根据条件查询${comment!}实体
+	 * @param condition
+	 * @return
+	 */
+	public List<${EntityName}> find${EntityName}ByCondition(Map<String, Object> condition) {
+		return ${entityName}Mapper.select${EntityName}ByCondition(condition);
+	}
+	
+	/**
+	 * 分页查询${comment!}实体
+	 * @param condition
+	 * @param pager
+	 */
+	public void find${EntityName}ByPager(Map<String, Object> condition,Pager pager) {
+		condition.put("start", pager.getOffset());
+		condition.put("length", pager.getLength());
+		List<${EntityName}> list=${entityName}Mapper.select${EntityName}ByPager(condition);
+		int count=${entityName}Mapper.select${EntityName}CountByPager(condition);
+		pager.searchResultHandle(list,count);
+	}
+
+}

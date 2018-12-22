@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<div class="row">
+	<div class="col-xs-12">
+	<div class="table-responsive">
+			<form id="input_form" class="form-horizontal" role="form">
+				<table class="table table-striped table-bordered table-hover">
+					<tbody>
+						<#assign x = 0>
+						<#list list as obj>
+						<#if obj.viewTypeDic=='1'><#if x%2==0><tr></#if>
+							<td width="25%">${obj.fieldMenuName!}:</td>
+							<td width="25%">
+								${r"${"}${entityName}.${obj.fieldName}}
+							</td>
+						<#if x%2==1></tr></#if>
+						<#assign x++>
+						</#if>
+						</#list>
+						<#if x%2==1>
+						<td></td>
+						<td></td>
+						</tr></#if>
+					</tbody>
+				</table>
+			 </form>
+		</div>
+	</div>
+</div>

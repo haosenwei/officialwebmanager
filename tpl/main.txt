@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<title>${menuName}-${r"${sessionScope.sysTitle}"}</title>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="row">
+			<form id="${entityName}Main_search_form" role="form" >
+				<div class="col-md-2">
+				<div class="form-group" >
+					  <input type="text" class="form-control" onkeypress="if(event.keyCode==13) {${entityName}Main_aceSearch.click();return false;}"  name="search_name" placeholder="名称"  />
+				</div>
+				</div>
+				<div class="col-md-2">
+				<div class="form-group">
+			        <button type="button" id="${entityName}Main_aceSearch" class="btn btn-info btn-sm" data-rel="tooltip" title="查询" >
+						<span class="ace-icon fa fa-search icon-on-right bigger-110" ></span>
+					</button>
+					<button type="button" id="${entityName}Main_aceAdd" class="btn btn-info btn-sm  btn-success" data-rel="tooltip" title="添加">
+						<span class="ace-icon fa fa-plus  icon-on-right bigger-110"  ></span>
+					</button>
+					<button type="button" id="${entityName}Main_aceDels" class="btn btn-info btn-sm  btn-pink" data-rel="tooltip" title="删除">
+						<span class="ace-icon fa fa-trash-o  icon-on-right bigger-110" ></span>
+					</button>
+				</div>
+				</div>
+			</form>
+		</div>
+		<!-- 查询条件 -->
+	</div>
+	<div class="col-xs-12">
+		<table id="${entityName}Main" class="table table-striped table-bordered table-hover" >
+			<thead>
+				<tr class="center">
+					<td><label class="pos-rel"> <input type="checkbox" class="ace" name="${entityName}" /> <span class="lbl"></span>
+					</label></td>
+					<#list list as obj><#if obj.listTypeDic=='1'>
+					<td>${obj.fieldMenuName!}</td></#if>
+					</#list>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+
+	//修改
+	function aceEditf(id) {
+		aceEdit(id,"修改${menuName}","${r"${server}"}${urlPrefix}toEdit?${r"${_csrf.parameterName}=${_csrf.token}"}","${r"${server}"}${urlPrefix}doEdit?${r"${_csrf.parameterName}=${_csrf.token}"}","${entityName}_edit_form","${entityName}Main");
+	}
+	//查看
+	function aceViewf(id) {
+		aceView(id,"查看${menuName}","${r"${server}"}${urlPrefix}toView?${r"${_csrf.parameterName}=${_csrf.token}"}");
+	}
+	
+	//删除
+	function aceDelF(id) {
+		aceDel(id , '${entityName}Main',"${r"${server}"}${urlPrefix}del?${r"${_csrf.parameterName}=${_csrf.token}"}");
+	}
+	
+	$('.page-content-area').ace_ajax('loadScripts',[],function() {
+		var columns=[
+				{"data" : "<#list list as obj><#if obj.keyDic=="1">${obj.fieldName}</#if></#list>",className: "center","createdCell" : function(td, cellData,rowData, row,col) {
+					createCheckCell(td, cellData,rowData, row,col);
+					}
+				},
+				<#list list as obj><#if obj.listTypeDic=='1'>
+				{"data" : "${obj.fieldName}",className: "center"}, 
+				</#if></#list>
+				{"data" : "<#list list as obj><#if obj.keyDic=="1">${obj.fieldName}</#if></#list>",className: "center","createdCell":function(td, cellData,rowData, row,col){
+					createCellAuth(td, cellData,rowData, row,col);
+					}
+				}
+			];
+		initMainTable("${entityName}Main","${r"${server}"}${urlPrefix}search?${r"${_csrf.parameterName}=${_csrf.token}"}",columns);
+		$('.page-content-area').ace_ajax('stopLoading', true);
+	})
+	
+	//分页检索
+	$('#${entityName}Main_aceSearch').on('click',function() {
+		$('#${entityName}Main').DataTable().ajax.reload();
+	});
+	//添加
+	$('#${entityName}Main_aceAdd').on('click',function() {
+		aceAdd("添加${menuName}","${r"${server}"}${urlPrefix}toAdd?${r"${_csrf.parameterName}=${_csrf.token}"}","${r"${server}"}${urlPrefix}doAdd?${r"${_csrf.parameterName}=${_csrf.token}"}","${entityName}_add_form","${entityName}Main");
+	});
+	//批量删除
+	$('#${entityName}Main_aceDels').on('click',function() {
+		aceDels("确定删除？","${r"${server}"}${urlPrefix}dels?${r"${_csrf.parameterName}=${_csrf.token}"}","${entityName}Main");
+	});
+</script>

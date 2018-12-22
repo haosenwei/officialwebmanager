@@ -1,0 +1,76 @@
+package ${prefix}.mapper${spacePrefix};
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import ${prefix}.entity${spacePrefix}.${EntityName};
+
+/**
+ * ${comment!}数据库接口类
+ * @author ${author}
+ *
+ */
+@Mapper
+public interface ${EntityName}Mapper {
+	/**
+	 * 根据id查询${comment!}实体
+	 * @param id
+	 * @return
+	 */
+	public ${EntityName} select${EntityName}ById(<#list list as obj><#if obj.keyDic=="PRI">${obj.javaType}</#if></#list> id);
+
+	/**
+	 * 查询所有${comment!}实体
+	 * @return
+	 */
+	public List<${EntityName}> select${EntityName}All();
+
+	/**
+	 * 插入${comment!}实体
+	 * @param ${entityName}Form
+	 */
+	public void insert${EntityName}(${EntityName} ${entityName}Form);
+
+	/**
+	 * 更新${comment!}实体
+	 * @param ${entityName}Form
+	 */
+	public void update${EntityName}(${EntityName} ${entityName}Form);
+
+	/**
+	 * 根据条件更新${comment!}实体
+	 * @param condition
+	 */
+	public void update${EntityName}ByCondition(Map<String, Object> condition);
+
+	/**
+	 * 删除${comment!}实体
+	 * @param ids
+	 */
+	public void del${EntityName}ByIds(@Param("ids")String ids);
+
+	/**
+	 * 根据条件查询${comment!}实体
+	 * @param map
+	 * @return
+	 */
+	public List<${EntityName}> select${EntityName}ByCondition(Map<String, Object> map);
+	
+	/**
+	 * 分页查询${comment!}实体
+	 * @param map
+	 * @return
+	 */
+	public List<${EntityName}> select${EntityName}ByPager(Map<String, Object> map);
+
+	/**
+	 * 分页查询${comment!}实体条数
+	 * @param condition
+	 * @return
+	 */
+	public int select${EntityName}CountByPager(Map<String, Object> condition);
+
+}
