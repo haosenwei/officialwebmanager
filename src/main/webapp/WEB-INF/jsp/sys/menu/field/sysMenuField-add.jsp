@@ -1,184 +1,78 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<form class="form-horizontal" id="sysMenuField_add_form" role="form">
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-id">:</label>
-				<div class="col-sm-9">
-					<input id="form-field-id" name="id" value="${sysMenuField.id}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-menuId">表主键:</label>
-				<div class="col-sm-9">
-					<input id="form-field-menuId" name="menuId" value="${sysMenuField.menuId}" class="form-control" type="text">
-				</div>
-			</div>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<form class="layui-form" action="">
+	<div class="layui-form-item">
+		<label class="layui-form-label">输入框</label>
+		<div class="layui-input-block">
+			<input type="text" name="title" required lay-verify="required"
+				placeholder="请输入标题" autocomplete="off" class="layui-input">
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-columnName">名称(英文),分隔符_:</label>
-				<div class="col-sm-9">
-					<input id="form-field-columnName" name="columnName" value="${sysMenuField.columnName}" class="form-control" type="text">
-				</div>
-			</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">密码框</label>
+		<div class="layui-input-inline">
+			<input type="password" name="password" required lay-verify="required"
+				placeholder="请输入密码" autocomplete="off" class="layui-input">
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-dataType">字段类型:</label>
-				<div class="col-sm-9">
-					<input id="form-field-dataType" name="dataType" value="${sysMenuField.dataType}" class="form-control" type="text">
-				</div>
-			</div>
+		<div class="layui-form-mid layui-word-aux">辅助文字</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">选择框</label>
+		<div class="layui-input-block">
+			<select name="city" lay-verify="required">
+				<option value=""></option>
+				<option value="0">北京</option>
+				<option value="1">上海</option>
+				<option value="2">广州</option>
+				<option value="3">深圳</option>
+				<option value="4">杭州</option>
+			</select>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-columnType">字段类型:</label>
-				<div class="col-sm-9">
-					<input id="form-field-columnType" name="columnType" value="${sysMenuField.columnType}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-flength">字段长度:</label>
-				<div class="col-sm-9">
-					<input id="form-field-flength" name="flength" value="${sysMenuField.flength}" class="form-control" type="text">
-				</div>
-			</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">复选框</label>
+		<div class="layui-input-block">
+			<input type="checkbox" name="like[write]" title="写作"> <input
+				type="checkbox" name="like[read]" title="阅读" checked> <input
+				type="checkbox" name="like[dai]" title="发呆">
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-keyDic">主键标识:</label>
-				<div class="col-sm-9">
-					<input id="form-field-keyDic" name="keyDic" value="${sysMenuField.keyDic}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-jspTypeDic">页面类型:</label>
-				<div class="col-sm-9">
-					<input id="form-field-jspTypeDic" name="jspTypeDic" value="${sysMenuField.jspTypeDic}" class="form-control" type="text">
-				</div>
-			</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">开关</label>
+		<div class="layui-input-block">
+			<input type="checkbox" name="switch" lay-skin="switch">
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-comment">评论:</label>
-				<div class="col-sm-9">
-					<input id="form-field-comment" name="comment" value="${sysMenuField.comment}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-remark">备注:</label>
-				<div class="col-sm-9">
-					<input id="form-field-remark" name="remark" value="${sysMenuField.remark}" class="form-control" type="text">
-				</div>
-			</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">单选框</label>
+		<div class="layui-input-block">
+			<input type="radio" name="sex" value="男" title="男"> <input
+				type="radio" name="sex" value="女" title="女" checked>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-listTypeDic">列表页面展示:</label>
-				<div class="col-sm-9">
-					<input id="form-field-listTypeDic" name="listTypeDic" value="${sysMenuField.listTypeDic}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-addIsEdit">新建页面是否可以修改:</label>
-				<div class="col-sm-9">
-					<input id="form-field-addIsEdit" name="addIsEdit" value="${sysMenuField.addIsEdit}" class="form-control" type="text">
-				</div>
-			</div>
+	<div class="layui-form-item layui-form-text">
+		<label class="layui-form-label">文本域</label>
+		<div class="layui-input-block">
+			<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-addTypeDic">新增页面展示:</label>
-				<div class="col-sm-9">
-					<input id="form-field-addTypeDic" name="addTypeDic" value="${sysMenuField.addTypeDic}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-viewTypeDic">详情页面展示:</label>
-				<div class="col-sm-9">
-					<input id="form-field-viewTypeDic" name="viewTypeDic" value="${sysMenuField.viewTypeDic}" class="form-control" type="text">
-				</div>
-			</div>
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-editIsEdit">修改页面是否可修改:</label>
-				<div class="col-sm-9">
-					<input id="form-field-editIsEdit" name="editIsEdit" value="${sysMenuField.editIsEdit}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-editTypeDic">修改页面类型:</label>
-				<div class="col-sm-9">
-					<input id="form-field-editTypeDic" name="editTypeDic" value="${sysMenuField.editTypeDic}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-orderBy">排序:</label>
-				<div class="col-sm-9">
-					<input id="form-field-orderBy" name="orderBy" value="${sysMenuField.orderBy}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-defaultValue">默认值:</label>
-				<div class="col-sm-9">
-					<input id="form-field-defaultValue" name="defaultValue" value="${sysMenuField.defaultValue}" class="form-control" type="text">
-				</div>
-			</div>
-		</div>
-	</div>
-
 </form>
+
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>

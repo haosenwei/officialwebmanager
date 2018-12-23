@@ -10,9 +10,9 @@ public class Pager implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int draw =1;
+	private int curr =1;
 	private int recordsTotal;
-	private int length;
+	private int length = 10;
 	private int recordsFiltered;
 	private List data=new ArrayList<>();
 	private int offset;
@@ -25,16 +25,16 @@ public class Pager implements Serializable{
 		this.length = length;
 	}
 	public int getOffset() {
-		return offset;
+		return (curr-1)*length;
 	}
 	public void setOffset(int offset) {
 		this.offset = offset;
 	}
-	public int getDraw() {
-		return draw;
+	public int getCurr() {
+		return curr;
 	}
-	public void setDraw(int draw) {
-		this.draw = draw;
+	public void setCurr(int curr) {
+		this.curr = curr;
 	}
 	public int getRecordsTotal() {
 		return recordsTotal;
