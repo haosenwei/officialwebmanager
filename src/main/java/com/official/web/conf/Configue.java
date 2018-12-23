@@ -12,6 +12,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -46,9 +47,9 @@ public class Configue extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public DataSource dataSource() throws IOException {
-		Properties properties = new Properties();
-		properties.load(getClass().getResourceAsStream("/db.properties"));
-		HikariConfig config = new HikariConfig(properties);
+//		Properties properties = new Properties();
+//		properties.load(getClass().getResourceAsStream("/db.properties"));
+//		HikariConfig config = new HikariConfig(properties);
 //		HikariConfig config = new HikariConfig();
 //		config.setMaximumPoolSize(db_max_conn);
 //		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
@@ -58,7 +59,8 @@ public class Configue extends WebMvcConfigurerAdapter {
 //		config.addDataSourceProperty("user", db_username);
 //		config.addDataSourceProperty("password", db_password);
 //		HikariDataSource dataSource = new HikariDataSource(config);
-		return new HikariDataSource(config);
+		return DataSourceBuilder.create().build();
+//		return new HikariDataSource(config);
 	}
 	
 	private static String url = "59.110.218.135";
