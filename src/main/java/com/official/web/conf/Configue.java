@@ -45,44 +45,44 @@ public class Configue extends WebMvcConfigurerAdapter {
 	@Value("${mybatis.type-aliases-package}")   
 	private String typeAliasPackage;   
 
-	@Bean
-	public DataSource dataSource() throws IOException {
-//		Properties properties = new Properties();
-//		properties.load(getClass().getResourceAsStream("/db.properties"));
-//		HikariConfig config = new HikariConfig(properties);
-//		HikariConfig config = new HikariConfig();
-//		config.setMaximumPoolSize(db_max_conn);
-//		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-//		config.addDataSourceProperty("serverName", db_url);
-//		config.addDataSourceProperty("port", db_port);
-//		config.addDataSourceProperty("databaseName", db_name);
-//		config.addDataSourceProperty("user", db_username);
-//		config.addDataSourceProperty("password", db_password);
-//		HikariDataSource dataSource = new HikariDataSource(config);
-		return DataSourceBuilder.create().build();
-//		return new HikariDataSource(config);
-	}
+//	@Bean
+//	public DataSource dataSource() throws IOException {
+////		Properties properties = new Properties();
+////		properties.load(getClass().getResourceAsStream("/db.properties"));
+////		HikariConfig config = new HikariConfig(properties);
+////		HikariConfig config = new HikariConfig();
+////		config.setMaximumPoolSize(db_max_conn);
+////		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+////		config.addDataSourceProperty("serverName", db_url);
+////		config.addDataSourceProperty("port", db_port);
+////		config.addDataSourceProperty("databaseName", db_name);
+////		config.addDataSourceProperty("user", db_username);
+////		config.addDataSourceProperty("password", db_password);
+////		HikariDataSource dataSource = new HikariDataSource(config);
+//		return DataSourceBuilder.create().build();
+////		return new HikariDataSource(config);
+//	}
 	
-	private static String url = "59.110.218.135";
+	private static String url = "127.0.0.1";
 //	private static String url = "jdbc:mysql://59.110.218.135:3306/g4m";
 	private static String databaseName = "g4m";
 	private static String user = "root";
 	private static String password = "123456";
 
 
-//	@Bean
-//	public static DataSource dataSource() {
-//		HikariConfig config = new HikariConfig();
-//		// config.setMaximumPoolSize(db_max_conn);
-//		config.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
-////		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-//		config.addDataSourceProperty("serverName", url);
-//		config.addDataSourceProperty("port", 3306);
-//		config.addDataSourceProperty("databaseName", databaseName);
-//		config.addDataSourceProperty("user", user);
-//		config.addDataSourceProperty("password", password);
-//		return new HikariDataSource(config);
-//	}
+	@Bean
+	public static DataSource dataSource() {
+		HikariConfig config = new HikariConfig();
+		// config.setMaximumPoolSize(db_max_conn);
+		config.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
+//		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+		config.addDataSourceProperty("serverName", url);
+		config.addDataSourceProperty("port", 3306);
+		config.addDataSourceProperty("databaseName", databaseName);
+		config.addDataSourceProperty("user", user);
+		config.addDataSourceProperty("password", password);
+		return new HikariDataSource(config);
+	}
 
 	@Bean    
 	public SqlSessionFactoryBean createSqlSessionFactoryBean() throws IOException {
