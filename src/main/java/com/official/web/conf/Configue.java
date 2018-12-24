@@ -69,7 +69,6 @@ public class Configue extends WebMvcConfigurerAdapter {
 	private static String user = "root";
 	private static String password = "123456";
 
-
 	@Bean
 	public static DataSource dataSource() {
 		HikariConfig config = new HikariConfig();
