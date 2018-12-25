@@ -63,6 +63,7 @@ public class Configue extends WebMvcConfigurerAdapter {
 ////		return new HikariDataSource(config);
 //	}
 	
+	
 	private static String url = "127.0.0.1";
 //	private static String url = "jdbc:mysql://59.110.218.135:3306/g4m";
 	private static String databaseName = "g4m";
