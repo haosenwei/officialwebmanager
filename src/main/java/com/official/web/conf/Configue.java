@@ -64,14 +64,17 @@ public class Configue extends WebMvcConfigurerAdapter {
 //	}
 	
 	
-	private static String url = "127.0.0.1";
-//	private static String url = "jdbc:mysql://59.110.218.135:3306/g4m";
-	private static String databaseName = "g4m";
-	private static String user = "root";
-	private static String password = "123456";
+	@Value("${spring.datasource.dataSourceProperties.serverName}")
+	private String url ;
+	@Value("${spring.datasource.dataSourceProperties.databaseName}")
+	private String databaseName ;
+	@Value("${spring.datasource.username}")
+	private String user ;
+	@Value("${spring.datasource.password}")
+	private String password ;
 
 	@Bean
-	public static DataSource dataSource() {
+	public DataSource dataSource() {
 		HikariConfig config = new HikariConfig();
 		// config.setMaximumPoolSize(db_max_conn);
 		config.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
