@@ -73,4 +73,6 @@ public interface SysMenuFieldMapper {
 	 */
 	public int selectSysMenuFieldCountByPager(Map<String, Object> condition);
 
+	public List<SysMenuField> selectSysMenuFieldBySql(@Param("sql")String sql);
+
 }

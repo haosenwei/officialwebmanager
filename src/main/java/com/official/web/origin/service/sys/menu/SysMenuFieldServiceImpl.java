@@ -1,8 +1,11 @@
 package com.official.web.origin.service.sys.menu;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,6 +87,18 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 	
 	/**
+	 * 根据条件查询菜单详情表,1实体
+	 * @param condition
+	 * @return
+	 */
+	public List<SysMenuField> findSysMenuFieldBySql(String sql) {
+		if(StringUtils.isBlank(sql)) {
+			return new ArrayList<SysMenuField>();
+		}
+		return sysMenuFieldMapper.selectSysMenuFieldBySql(sql);
+	}
+	
+	/**
 	 * 分页查询菜单详情表,1实体
 	 * @param condition
 	 * @param pager
@@ -94,6 +109,12 @@ public class SysMenuFieldServiceImpl implements IService {
 		List<SysMenuField> list=sysMenuFieldMapper.selectSysMenuFieldByPager(condition);
 		int count=sysMenuFieldMapper.selectSysMenuFieldCountByPager(condition);
 		pager.searchResultHandle(list,count);
+	}
+
+	public List<SysMenuField> findSysMenuFieldByCode(String string) {
+		String sql = "SELECT * FROM `sys_menu_field` WHERE menu_id = (SELECT id FROM sys_menu WHERE `code` = '"+string+"' )";
+		List<SysMenuField> list = sysMenuFieldMapper.selectSysMenuFieldBySql(sql);
+		return list;
 	}
 
 }
