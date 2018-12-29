@@ -64,26 +64,60 @@ public class Configue extends WebMvcConfigurerAdapter {
 //	}
 	
 	
-	@Value("${spring.datasource.dataSourceProperties.serverName}")
-	private String url ;
-	@Value("${spring.datasource.dataSourceProperties.databaseName}")
-	private String databaseName ;
-	@Value("${spring.datasource.username}")
-	private String user ;
-	@Value("${spring.datasource.password}")
-	private String password ;
+	@Value("${datasource.dataSourceClassName}")
+	private String dataSourceClassName;
+	@Value("${datasource.serverName}")
+	private String serverName;
+	@Value("${datasource.portNumber}")
+	private String portNumber;
+	@Value("${datasource.databaseName}")
+	private String databaseName;
+	@Value("${datasource.username}")
+	private String username;
+	@Value("${datasource.password}")
+	private String password;
+	@Value("${datasource.default-auto-commit}")
+	private String defaultAutoCommit;
+	@Value("${datasource.auto-commit}")
+	private String autoCommit;
+	@Value("${datasource.maximum-pool-size}")
+	private String maximumPoolSize;
+	@Value("${datasource.max-idle}")
+	private String maxIdle;
+	@Value("${datasource.max-wait}")
+	private String maxWait;
+	@Value("${datasource.min-idle}")
+	private String minIdle;
+	@Value("${datasource.initial-size}")
+	private String initialSize;
+	@Value("${datasource.validation-query}")
+	private String validationQuery;
+	@Value("${datasource.test-on-borrow}")
+	private String testOnBorrow;
+	@Value("${datasource.test-while-idle}")
+	private String testWhileIdle;
+	@Value("${datasource.time-between-eviction-runs-millis}")
+	private String timeBetweenEvictionRunsMillis;
+	@Value("${datasource.minEvictableIdleTimeMillis}")
+	private String minEvictableIdleTimeMillis;
+	
+	
+	
+	
+	
 
 	@Bean
 	public DataSource dataSource() {
 		HikariConfig config = new HikariConfig();
 		// config.setMaximumPoolSize(db_max_conn);
-		config.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
+		config.setDataSourceClassName(dataSourceClassName);
 //		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-		config.addDataSourceProperty("serverName", url);
-		config.addDataSourceProperty("port", 3306);
+		config.addDataSourceProperty("serverName", serverName);
+		config.addDataSourceProperty("port", portNumber);
 		config.addDataSourceProperty("databaseName", databaseName);
-		config.addDataSourceProperty("user", user);
+		config.addDataSourceProperty("user", username);
 		config.addDataSourceProperty("password", password);
+//		config.setUsername(username);
 		return new HikariDataSource(config);
 	}
 
