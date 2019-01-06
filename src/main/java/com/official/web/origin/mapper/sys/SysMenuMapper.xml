@@ -82,7 +82,7 @@
 		</if>
 	</sql>
 
-	<!-- 根据 id 查询菜单表,1对象 -->
+	<!-- 根据 id 查询,1对象 -->
 	<select id="selectSysMenuById" parameterType="map" resultMap="SysMenuBean">
 		select <include refid="SysMenuSelectColumns" />
 		from sys_menu t
@@ -90,13 +90,13 @@
 		
 	</select>
 	
-	<!-- 查询所有菜单表,1对象 -->
+	<!-- 查询所有,1对象 -->
 	<select id="selectSysMenuAll" resultMap="SysMenuBean">
 		select <include refid="SysMenuSelectColumns" />
 		from sys_menu t
 	</select>
 
-	<!-- 插入菜单表,1对象 主键自动生成 -->
+	<!-- 插入,1对象 主键自动生成 -->
 	<insert id="insertSysMenu" keyProperty="id" useGeneratedKeys="true" parameterType="Map">
 		insert into sys_menu
 		(
@@ -133,7 +133,7 @@
 		)
 	</insert>
 
-	<!-- 更新菜单表,1对象 -->
+	<!-- 更新,1对象 -->
 	<update id="updateSysMenu" parameterType="Map">
 		update sys_menu set
 		id = #{id},
@@ -153,19 +153,19 @@
 		where
 	</update>
 	
-	<!-- 删除菜单表,1对象 -->
+	<!-- 删除,1对象 -->
 	<delete id="delSysMenuByIds" parameterType="Map">
 		delete from sys_menu where  in (${ids})
 	</delete>
 
-	<!-- 根据 条件 查询菜单表,1对象 -->
+	<!-- 根据 条件 查询,1对象 -->
 	<select id="selectSysMenuByCondition" parameterType="Map" resultMap="SysMenuBean">
 		select <include refid="SysMenuSelectColumns" />
 		from sys_menu t
 		where 1 = 1 <include refid="dynamicWhere" />
 	</select>
 	
-	<!-- 根据 条件更新菜单表,1对象 -->
+	<!-- 根据 条件更新,1对象 -->
 	<update id="updateSysMenuByCondition" parameterType="Map">
 		update sys_menu
 		<set>
@@ -266,12 +266,17 @@
 		limit #{start}, #{length}
 	</select>
 	
-	<!-- 根据条件查询菜单表,1对象数量 -->
+	<!-- 根据条件查询,1对象数量 -->
 	<select id="selectSysMenuCountByPager" parameterType="Map" resultType="int">
 		select
 		count(1)
-		from sys_menu
+		from sys_menu t
 		where 1 = 1 <include refid="dynamicWhere" />
 	</select>
 	<!-- end 分页查询 -->
+	
+	<!-- 通过sql查询 -->
+	<select id="selectSysMenuBySql" parameterType="Map" resultMap="SysMenuBean">
+		${sql}
+	</select>
 </mapper>

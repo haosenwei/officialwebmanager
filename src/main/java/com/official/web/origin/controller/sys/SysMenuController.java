@@ -1,6 +1,5 @@
-package com.official.web.origin.controller.sys;
+﻿package com.official.web.origin.controller.sys;
 
-import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,13 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
-import com.official.web.origin.entity.common.LayuiDataResult;
 import com.official.web.origin.entity.common.Pager;
 import com.official.web.origin.entity.common.Result;
 import com.official.web.origin.entity.sys.SysMenu;
-import com.official.web.origin.entity.sys.menu.SysMenuField;
 import com.official.web.origin.service.sys.SysMenuServiceImpl;
-import com.official.web.origin.service.sys.menu.SysMenuFieldServiceImpl;
 
 /**
  * 
@@ -36,9 +32,6 @@ public class SysMenuController {
 	/**服务实现类**/
 	@Autowired
 	SysMenuServiceImpl sysMenuServiceImpl;
-	/**服务实现类**/
-	@Autowired
-	SysMenuFieldServiceImpl sysMenuFieldServiceImpl;
 
 	/**
 	 * main页面
@@ -47,30 +40,8 @@ public class SysMenuController {
 	@RequestMapping("main")
 	public ModelAndView main(){
 		logger.info("sysMenu main");
-		ModelAndView mav=new ModelAndView("main");
-		mav.addObject("code", "sys_menu");
-		mav.addObject("url", "sys/menu/");
-		List<SysMenuField> list = sysMenuFieldServiceImpl.findSysMenuFieldByCode("sys_menu");
-		checkList(list);
-		mav.addObject("SysMenuFieldList", list);
-		
+		ModelAndView mav=new ModelAndView("sys/menu/sysMenu-main");
 		return mav;
-	}
-
-	private void checkList(List<SysMenuField> list) {
-		for (SysMenuField sysMenuField : list) {
-			String[] split = sysMenuField.getColumnName().split("_");
-			String res = "";
-			for (int i = 0; i < split.length; i++) {
-				if(i==0) {
-					res+=split[i];
-				}else {
-					String upperCase = split[i].substring(0, 1).toUpperCase();
-					res+=upperCase+split[i].substring(1);
-				}
-			}
-			sysMenuField.setColumnName(res);
-		}
 	}
 
 	/**
@@ -89,7 +60,7 @@ public class SysMenuController {
 	 * @param
 	 * @return
 	 */
-	@RequestMapping("doAdd")
+	@RequestMapping(value="doAdd",method=RequestMethod.POST)
 	@ResponseBody
 	public Result doAdd(SysMenu sysMenuForm){
 		logger.info("sysMenu doAdd");
@@ -116,7 +87,7 @@ public class SysMenuController {
 	 * @param sysMenuForm
 	 * @return
 	 */
-	@RequestMapping("doEdit")
+	@RequestMapping(value="doEdit",method=RequestMethod.POST)
 	@ResponseBody
 	public Result doEdit(SysMenu sysMenuForm){
 		logger.info("sysMenu doEdit");
@@ -129,7 +100,7 @@ public class SysMenuController {
 	 * @param ids
 	 * @return
 	 */
-	@RequestMapping("del")
+	@RequestMapping(value="del",method=RequestMethod.POST)
 	@ResponseBody
 	public Result del(String ids){
 		logger.info("sysMenu doEdit");
@@ -157,17 +128,13 @@ public class SysMenuController {
 	 * @param pager
 	 * @return
 	 */
-	@RequestMapping(value="search" ,method=RequestMethod.GET)
+	@RequestMapping(value="search" ,method=RequestMethod.POST)
 	@ResponseBody
-	public LayuiDataResult search(HttpServletRequest request,Pager pager){
+	public Pager search(HttpServletRequest request,Pager pager){
 		logger.info("sysMenu search");
 		Map<String, Object> condition=WebUtils.getParametersStartingWith(request, "search_");
 		sysMenuServiceImpl.findSysMenuByPager(condition, pager);
-		List data = pager.getData();
-		LayuiDataResult layuiDataResult = new LayuiDataResult();
-		layuiDataResult.setData(data);
-		layuiDataResult.setCount(pager.getRecordsTotal());
-		return layuiDataResult;
+		return pager;
 	}
 	
 	/**
@@ -187,7 +154,7 @@ public class SysMenuController {
 	 * @param pager
 	 * @return
 	 */
-	@RequestMapping("dialogSearch")
+	@RequestMapping(value="dialogSearch",method=RequestMethod.POST)
 	@ResponseBody
 	public Pager dialogSearch(HttpServletRequest request,Pager pager){
 		logger.info("sysMenu dialogSearch");

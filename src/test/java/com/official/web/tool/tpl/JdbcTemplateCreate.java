@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Test;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import com.official.web.origin.entity.sys.SysMenu;
 import com.official.web.tool.tpl.bean.SysTableField;
 
 public class JdbcTemplateCreate {
@@ -22,7 +22,16 @@ public class JdbcTemplateCreate {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		createByTableName("sys_menu");
+		// 查询所有的表结构
+		List<SysMenu> querySysMenu = querySysMenu();
+		for (SysMenu sysMenu : querySysMenu) {
+			createByTableName(sysMenu.getCode());
+		}
+		// String tableName = "sys_menu";
+		// String[] split = tableName.split(",");
+		// for (String string : split) {
+		// createByTableName(string);
+		// }
 	}
 
 	private static void createByTableName(String string) {
@@ -36,15 +45,16 @@ public class JdbcTemplateCreate {
 			System.out.println(queryDetail.toString());
 		}
 		System.out.println(target.size());
-		 new DBHelper().createfile(user, target);
+		if (target.size() > 0) {
+			new DBHelper().createfile(user, target);
+		}
 	}
 
 	private static List<SysTableField> queryForList(String string) {
 		String sql = "select * from sys_menu_field where menu_id = ? ";
-		List<SysTableField> queryForList = jdbc.query(sql, new Object[] {string}, new MyRowMapper());
-		return (List<SysTableField>) queryForList;
+		List<SysTableField> queryForList = jdbc.query(sql, new Object[] { string }, new MyRowMapper());
+		return queryForList;
 	}
-
 
 	// 查询
 	public static Map<String, Object> query(String id) {
@@ -54,6 +64,14 @@ public class JdbcTemplateCreate {
 		// List<SysTable> queryForList = jdbc.queryForList(sql, SysTable.class, args);
 		return map;
 	}
+
+	// 查询
+	public static List<SysMenu> querySysMenu() {
+		String sql = "select * from sys_menu ";
+		List<SysMenu> queryForList = jdbc.query(sql, new Object[] {}, new SysMenuMapper());
+		return queryForList;
+	}
+
 	public static SysTableField queryDetail(long id) {
 		String sql = "select * from sys_menu_field where id = ?";
 		Object args[] = new Object[] { id };
@@ -69,6 +87,15 @@ class MyRowMapper implements RowMapper<SysTableField> {
 	public SysTableField mapRow(ResultSet resultSet, int i) throws SQLException {
 		SysTableField familyMember = new SysTableField();
 		familyMember.setId(resultSet.getLong("id"));
+		return familyMember;
+	}
+}
+class SysMenuMapper implements RowMapper<SysMenu> {
+	@Override
+	public SysMenu mapRow(ResultSet resultSet, int i) throws SQLException {
+		SysMenu familyMember = new SysMenu();
+		familyMember.setId(resultSet.getLong("id"));
+		familyMember.setCode(resultSet.getString("code"));
 		return familyMember;
 	}
 }

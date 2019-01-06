@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/g4m" prefix="o" %>
 
 <title>菜单详情表-${sessionScope.sysTitle}</title>
 
@@ -11,7 +12,7 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">输入框</label>
 						<div class="layui-input-block">
-							<input type="text" name="search_columnName" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+							<input type="text" name="search_code" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 				</div>
@@ -24,62 +25,39 @@
 		</form>
 	</div>
 	<div class="layui-col-md12">
-		<table id="demo" lay-filter="test"></table>
+		<table id="sysMenuTable" lay-filter="sysMenuTable"></table>
 	</div>
-
-	
 </div>
 <script>
-	layui.use([ 'table', 'jquery', 'common' ], function() {
-		var table = layui.table, $ = layui.jquery, common = layui.common;
-		//第一个实例
-		table.render({
-			id : 'idTest',
-			elem : '#demo',
-			url : '${url}search' //数据接口
-			,
-			page : true //开启分页
-			,
-			cols : [ [ //表头
-					{
-						checkbox : true
-					},
-					{field : "id",
-						LAY_CHECKED : false,
-						type : 'radio',
-						title : "id"
-					},
-					<c:forEach items="${SysMenuFieldList}" var="obj">
-					{
-						field : "${obj.columnName}",
-						title : "${obj.comment}"
-					},
-					</c:forEach>
-					{
-						templet : function(d) {
-							return '<div class="layui-btn-group">'
-									+ '<button class="layui-btn layui-btn-sm">'
-									+ '<i class="layui-icon">&#xe654;</i>'
-									+ '</button>'
-									+ '<button class="layui-btn layui-btn-sm">'
-									+ ' <i class="layui-icon">&#xe642;</i>'
-									+ '</button>'
-									+ '<button class="layui-btn layui-btn-sm">'
-									+ '<i class="layui-icon">&#xe640;</i>'
-									+ ' </button>' + '</div>';
-						}
-					} ] ],
-			method : 'get' //如果无需自定义HTTP类型，可不加该参数
-			,
-			request : {
-				pageName : 'curr' //页码的参数名称，默认：page
-				,
-				limitName : 'length' //每页数据量的参数名，默认：limit
+	layui.use(['jquery', 'common' ], function() {
+		var table = layui.table ,$ = layui.jquery, common = layui.common;
+		var colNames = [ [ //表头
+			{
+				checkbox : true
 			},
-			where : common.getParam('${code}_search_form')
-		});
+			<c:forEach items="${SysMenuFieldList}" var="obj">
+			{
+				field : "${obj.columnName}",
+				title : "${obj.comment}"
+			},
+			</c:forEach>
+			{
+				templet : function(d) {
+					return '<div class="layui-btn-group">'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ '<i class="layui-icon">&#xe654;</i>'
+							+ '</button>'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ ' <i class="layui-icon">&#xe642;</i>'
+							+ '</button>'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ '<i class="layui-icon">&#xe640;</i>'
+							+ ' </button>' + '</div>';
+				}
+			} ] ];
+		common.renderTable('sysMenu','sys/menu',colNames);
 		$(document).on('click', '#${code}_search_btn', function() {
-			table.reload('idTest', {
+			table.reload('sysMenuTableTest', {
 				where : common.getParam('${code}_search_form'),
 				page : {
 					curr : 0

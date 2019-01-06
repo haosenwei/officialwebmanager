@@ -43,10 +43,12 @@ public class TableField {
 	private String editTypeDic;
 
 	private String keyDic;
+	
+	private String jspTypeDic;
 
 	public TableField(SysTableField sysTableField) {
 
-		orderBy = Integer.valueOf(sysTableField.getOrderBy());
+		orderBy = Integer.valueOf(sysTableField.getOrderBy()==null?"1":sysTableField.getOrderBy());
 
 		field_name = sysTableField.getColumnName();
 		fieldMenuName = (sysTableField.getComment()==null?"":sysTableField.getComment()).split(":")[0];
@@ -81,6 +83,8 @@ public class TableField {
 		editTypeDic = sysTableField.getEditTypeDic();
 
 		keyDic = sysTableField.getKeyDic();
+		
+		jspTypeDic = sysTableField.getJspTypeDic();
 	}
 
 	public String getFormat() {
@@ -196,6 +200,14 @@ public class TableField {
 
 	public void setKeyDic(String keyDic) {
 		this.keyDic = keyDic;
+	}
+
+	public String getJspTypeDic() {
+		return jspTypeDic;
+	}
+
+	public void setJspTypeDic(String jspTypeDic) {
+		this.jspTypeDic = jspTypeDic;
 	}
 
 }

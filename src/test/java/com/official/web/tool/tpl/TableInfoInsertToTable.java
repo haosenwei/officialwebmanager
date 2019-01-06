@@ -18,7 +18,21 @@ public class TableInfoInsertToTable {
 	static JdbcTemplate jdbc = new JdbcTemplate(JdbcUtils.getDataSource());
 
 	public static void main(String[] args) {
-		String tableName = "sys_menu_field,sys_menu";
+		String tableName = "access_record"+
+		",auth_role"+
+		",auth_role_menu"+
+		",auth_role_user"+
+		",sys_config"+
+		",sys_dic_auth"+
+		",sys_dic_group"+
+		",sys_dic_item"+
+		",sys_log"+
+		",sys_menu"+
+		",sys_menu_field"+
+		",sys_user";
+		
+		
+//		String tableName = "sys_dic_item,sys_dic_auth,sys_dic_group";
 		String[] split = tableName.split(",");
 		for (String string : split) {
 			addToTable(string);
@@ -62,7 +76,7 @@ public class TableInfoInsertToTable {
 			String updateSql = "UPDATE `g4m`.`sys_menu_field` SET `column_name` = '" + COLUMN_NAME
 					+ "', `data_type` = '" + DATA_TYPE + "', `column_type` = '" + COLUMN_TYPE + "', `flength` = '"
 					+ CHARACTER_MAXIMUM_LENGTH + "', `key_dic` = '" + COLUMN_KEY + "',`comment` = '"
-					+ COLUMN_COMMENT.split(":")[0] + "', `remark` = '" + COLUMN_COMMENT + "',`default` = '"
+					+ COLUMN_COMMENT.split(":")[0] + "', `remark` = '" + COLUMN_COMMENT + "',`default_value` = '"
 					+ COLUMN_DEFAULT + "' WHERE `id` = " + string;
 			jdbc.update(updateSql);
 		}
@@ -139,9 +153,8 @@ public class TableInfoInsertToTable {
 	}
 
 	private static Map<String, Object> queryDataInfo(String tableName) {
-		Map<String, Object> queryForMap = jdbc
-				.queryForMap("SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.`TABLES` WHERE TABLE_NAME = '"
-						+ tableName + "'");
+		System.out.println("查询表:"+tableName);
+		Map<String, Object> queryForMap = jdbc.queryForMap("SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.`TABLES` WHERE TABLE_NAME = '" + tableName + "'  and TABLE_SCHEMA = 'g4m'");
 		return queryForMap;
 	}
 }

@@ -1,4 +1,4 @@
-package com.official.web.origin.service.sys;
+﻿package com.official.web.origin.service.sys;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import com.official.web.origin.mapper.sys.SysMenuMapper;
 import com.official.web.origin.service.IService;
 
 /**
- * 菜单表,1服务实现类
+ * ,1服务实现类
  * @author hsw
  *
  */
@@ -21,12 +21,12 @@ import com.official.web.origin.service.IService;
 @Transactional
 public class SysMenuServiceImpl implements IService {
 
-	/**菜单表,1实体操作类**/
+	/**,1实体操作类**/
 	@Autowired
 	private	SysMenuMapper sysMenuMapper;
 
 	/**
-	 * 根据id查询菜单表,1实体
+	 * 根据id查询,1实体
 	 * @param id
 	 * @return
 	 */
@@ -35,7 +35,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 	
 	/**
-	 * 查询所有菜单表,1实体
+	 * 查询所有,1实体
 	 * @return
 	 */
 	public List<SysMenu> findEntityAll() {
@@ -43,7 +43,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 	
 	/**
-	 * 新增菜单表,1实体
+	 * 新增,1实体
 	 * @param sysMenuForm
 	 */
 	public void addSysMenu(SysMenu sysMenuForm) {
@@ -51,7 +51,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 
 	/**
-	 * 更新菜单表,1实体
+	 * 更新,1实体
 	 * @param sysMenuForm
 	 */
 	public void modifySysMenu(SysMenu sysMenuForm) {
@@ -59,7 +59,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 
 	/**
-	 * 根据条件更新菜单表,1实体
+	 * 根据条件更新,1实体
 	 * @param condition
 	 */
 	public void modifySysMenuByCondition(Map<String, Object> condition) {
@@ -67,7 +67,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 
 	/**
-	 * 根据ids删除菜单表,1实体
+	 * 根据ids删除,1实体
 	 * @param ids
 	 */
 	public void removeSysMenuByIds(String ids) {
@@ -75,7 +75,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 	
 	/**
-	 * 根据条件查询菜单表,1实体
+	 * 根据条件查询,1实体
 	 * @param condition
 	 * @return
 	 */
@@ -84,7 +84,7 @@ public class SysMenuServiceImpl implements IService {
 	}
 	
 	/**
-	 * 分页查询菜单表,1实体
+	 * 分页查询,1实体
 	 * @param condition
 	 * @param pager
 	 */

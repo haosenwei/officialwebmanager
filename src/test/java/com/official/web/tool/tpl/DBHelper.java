@@ -98,7 +98,9 @@ public class DBHelper {
 			}
 		}
 		map.put("spacePrefix", spacePrefix);
-		map.put("comment", sysTable.get("name") + "," + sysTable.get("remark").toString());
+		
+		
+		map.put("comment", sysTable.get("name") + "" + sysTable.get("remark")==null?"":","+sysTable.get("remark"));
 		map.put("author", tpl.getAuthor());
 
 		split = sysTable.get("code").toString().split("_");

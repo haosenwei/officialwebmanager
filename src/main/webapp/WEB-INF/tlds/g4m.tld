@@ -8,7 +8,7 @@
 	<uri>/g4m</uri>
 	<tag>
 		<name>select</name>
-		<tag-class>com.go4mi.component.tag.SelectListTag</tag-class>
+		<tag-class>com.official.web.component.tag.SelectListTag</tag-class>
 		<body-content>JSP</body-content>
 		<description>页面上下拉框的集合</description>
 		<attribute>
@@ -29,8 +29,30 @@
 		<attribute>
 			<name>valuea</name>
 			<required>false</required>
-            <rtexprvalue>true</rtexprvalue>
+			<rtexprvalue>true</rtexprvalue>
 			<description>选中的值</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>SysDic</name>
+		<tag-class>com.official.web.component.tag.SelectDicTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>页面上下拉框的集合</description>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+			<description>字段的code值</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<description>字段的值(非必填)</description>
+		</attribute>
+		
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<description>类型:all(选择所有),pleaseSelect(请选择),none(默认选择第一个)</description>
 		</attribute>
 	</tag>
 </taglib>

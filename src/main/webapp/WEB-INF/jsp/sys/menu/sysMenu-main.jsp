@@ -1,115 +1,79 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/g4m" prefix="o" %>
 
 <title>菜单表-${sessionScope.sysTitle}</title>
 
-<div class="row">
-	<div class="col-xs-12">
-		<div class="row">
-			<form id="sysMenuMain_search_form" role="form" >
-				<div class="col-md-2">
-				<div class="form-group" >
-					  <input type="text" class="form-control" onkeypress="if(event.keyCode==13) {sysMenuMain_aceSearch.click();return false;}"  name="search_name" placeholder="名称"  />
+<div class="layui-row">
+	<div class="layui-col-md12">
+		<form class="layui-form" id="sysMenu_search_form" action="#">
+			<div class="layui-row">
+				<div class="layui-col-md3">
+					<div class="layui-form-item">
+						<label class="layui-form-label">输入框</label>
+						<div class="layui-input-block">
+							<input type="text" name="search_code" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+						</div>
+					</div>
 				</div>
+				<div class="layui-col-md4">
+					<a id="sysMenu_search_btn" class="layui-btn">搜索</a>
+					<a id="sysMenu_reset" class="layui-btn">重置</a>
+					<a id="sysMenu_add" class="layui-btn">新增</a> <a id="sysMenu_dels" class="layui-btn">删除</a>
 				</div>
-				<div class="col-md-2">
-				<div class="form-group">
-			        <button type="button" id="sysMenuMain_aceSearch" class="btn btn-info btn-sm" data-rel="tooltip" title="查询" >
-						<span class="ace-icon fa fa-search icon-on-right bigger-110" ></span>
-					</button>
-					<button type="button" id="sysMenuMain_aceAdd" class="btn btn-info btn-sm  btn-success" data-rel="tooltip" title="添加">
-						<span class="ace-icon fa fa-plus  icon-on-right bigger-110"  ></span>
-					</button>
-					<button type="button" id="sysMenuMain_aceDels" class="btn btn-info btn-sm  btn-pink" data-rel="tooltip" title="删除">
-						<span class="ace-icon fa fa-trash-o  icon-on-right bigger-110" ></span>
-					</button>
-				</div>
-				</div>
-			</form>
-		</div>
-		<!-- 查询条件 -->
+			</div>
+		</form>
 	</div>
-	<div class="col-xs-12">
-		<table id="sysMenuMain" class="table table-striped table-bordered table-hover" >
-			<thead>
-				<tr class="center">
-					<td><label class="pos-rel"> <input type="checkbox" class="ace" name="sysMenu" /> <span class="lbl"></span>
-					</label></td>
-					<td></td>
-					<td>编码</td>
-					<td>类型</td>
-					<td>菜单名称</td>
-					<td>上级节点</td>
-					<td>状态</td>
-					<td>地址</td>
-					<td>路径</td>
-					<td>图标</td>
-					<td>排序</td>
-					<td>备注</td>
-					<td>创建时间</td>
-					<td>修改者</td>
-					<td>修改时间</td>
-					<td>操作</td>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
+	<div class="layui-col-md12">
+		<table id="sysMenuTable" lay-filter="sysMenuTable"></table>
 	</div>
 </div>
-<script type="text/javascript">
-
-	//修改
-	function aceEditf(id) {
-		aceEdit(id,"修改菜单表","${server}sys/menu/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/menu/doEdit?${_csrf.parameterName}=${_csrf.token}","sysMenu_edit_form","sysMenuMain");
-	}
-	//查看
-	function aceViewf(id) {
-		aceView(id,"查看菜单表","${server}sys/menu/toView?${_csrf.parameterName}=${_csrf.token}");
-	}
-	
-	//删除
-	function aceDelF(id) {
-		aceDel(id , 'sysMenuMain',"${server}sys/menu/del?${_csrf.parameterName}=${_csrf.token}");
-	}
-	
-	$('.page-content-area').ace_ajax('loadScripts',[],function() {
-		var columns=[
-				{"data" : "",className: "center","createdCell" : function(td, cellData,rowData, row,col) {
-					createCheckCell(td, cellData,rowData, row,col);
-					}
-				},
-				{"data" : "id",className: "center"}, 
-				{"data" : "code",className: "center"}, 
-				{"data" : "typeDic",className: "center"}, 
-				{"data" : "name",className: "center"}, 
-				{"data" : "pid",className: "center"}, 
-				{"data" : "statusDic",className: "center"}, 
-				{"data" : "url",className: "center"}, 
-				{"data" : "path",className: "center"}, 
-				{"data" : "icon",className: "center"}, 
-				{"data" : "sort",className: "center"}, 
-				{"data" : "remark",className: "center"}, 
-				{"data" : "createTime",className: "center"}, 
-				{"data" : "modifyUerId",className: "center"}, 
-				{"data" : "modifyTime",className: "center"}, 
-				{"data" : "",className: "center","createdCell":function(td, cellData,rowData, row,col){
-					createCellAuth(td, cellData,rowData, row,col);
-					}
+<script>
+	layui.use(['jquery', 'common' ], function() {
+		var table = layui.table ,$ = layui.jquery, common = layui.common;
+		var colNames = [ [ //表头
+			{
+				checkbox : true
+			},
+			{ field : "id", title : "" },
+			{ field : "code", title : "编码" },
+			{ field : "typeDic", title : "类型" },
+			{ field : "name", title : "菜单名称" },
+			{ field : "pid", title : "上级节点" },
+			{ field : "statusDic", title : "状态" },
+			{ field : "url", title : "地址" },
+			{ field : "path", title : "路径" },
+			{ field : "icon", title : "图标" },
+			{ field : "sort", title : "排序" },
+			{ field : "remark", title : "备注" },
+			{ field : "createTime", title : "创建时间" },
+			{ field : "modifyUerId", title : "修改者" },
+			{ field : "modifyTime", title : "修改时间" },
+			{
+				templet : function(d) {
+					return '<div class="layui-btn-group">'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ '<i class="layui-icon">&#xe654;</i>'
+							+ '</button>'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ ' <i class="layui-icon">&#xe642;</i>'
+							+ '</button>'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ '<i class="layui-icon">&#xe640;</i>'
+							+ ' </button>' + '</div>';
 				}
-			];
-		initMainTable("sysMenuMain","${server}sys/menu/search?${_csrf.parameterName}=${_csrf.token}",columns);
-		$('.page-content-area').ace_ajax('stopLoading', true);
-	})
-	
-	//分页检索
-	$('#sysMenuMain_aceSearch').on('click',function() {
-		$('#sysMenuMain').DataTable().ajax.reload();
-	});
-	//添加
-	$('#sysMenuMain_aceAdd').on('click',function() {
-		aceAdd("添加菜单表","${server}sys/menu/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/menu/doAdd?${_csrf.parameterName}=${_csrf.token}","sysMenu_add_form","sysMenuMain");
-	});
-	//批量删除
-	$('#sysMenuMain_aceDels').on('click',function() {
-		aceDels("确定删除？","${server}sys/menu/dels?${_csrf.parameterName}=${_csrf.token}","sysMenuMain");
+			} ] ];
+		common.renderTable('sysMenu',"${server}sys/menu/search?${_csrf.parameterName}=${_csrf.token}",colNames);
+		$(document).on('click', '#sysMenu_search_btn', function() {
+			table.reload('sysMenuTableTest', {
+				where : common.getParam('sysMenu_search_form'),
+				page : {
+					curr : 0//重新从第 1 页开始
+				}
+			});
+		});
+		$("#sysMenu").off('click').on('click', function(){
+			common.addTab("${server}sys/menu/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysMenu_add', '新增菜单表'); //url , code, name
+		});
 	});
 </script>

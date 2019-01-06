@@ -1,11 +1,8 @@
-package com.official.web.origin.service.sys.menu;
+﻿package com.official.web.origin.service.sys.menu;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +13,7 @@ import com.official.web.origin.mapper.sys.menu.SysMenuFieldMapper;
 import com.official.web.origin.service.IService;
 
 /**
- * 菜单详情表,1服务实现类
+ * ,null服务实现类
  * @author hsw
  *
  */
@@ -24,12 +21,12 @@ import com.official.web.origin.service.IService;
 @Transactional
 public class SysMenuFieldServiceImpl implements IService {
 
-	/**菜单详情表,1实体操作类**/
+	/**,null实体操作类**/
 	@Autowired
 	private	SysMenuFieldMapper sysMenuFieldMapper;
 
 	/**
-	 * 根据id查询菜单详情表,1实体
+	 * 根据id查询,null实体
 	 * @param id
 	 * @return
 	 */
@@ -38,7 +35,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 	
 	/**
-	 * 查询所有菜单详情表,1实体
+	 * 查询所有,null实体
 	 * @return
 	 */
 	public List<SysMenuField> findEntityAll() {
@@ -46,7 +43,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 	
 	/**
-	 * 新增菜单详情表,1实体
+	 * 新增,null实体
 	 * @param sysMenuFieldForm
 	 */
 	public void addSysMenuField(SysMenuField sysMenuFieldForm) {
@@ -54,7 +51,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 
 	/**
-	 * 更新菜单详情表,1实体
+	 * 更新,null实体
 	 * @param sysMenuFieldForm
 	 */
 	public void modifySysMenuField(SysMenuField sysMenuFieldForm) {
@@ -62,7 +59,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 
 	/**
-	 * 根据条件更新菜单详情表,1实体
+	 * 根据条件更新,null实体
 	 * @param condition
 	 */
 	public void modifySysMenuFieldByCondition(Map<String, Object> condition) {
@@ -70,7 +67,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 
 	/**
-	 * 根据ids删除菜单详情表,1实体
+	 * 根据ids删除,null实体
 	 * @param ids
 	 */
 	public void removeSysMenuFieldByIds(String ids) {
@@ -78,7 +75,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 	
 	/**
-	 * 根据条件查询菜单详情表,1实体
+	 * 根据条件查询,null实体
 	 * @param condition
 	 * @return
 	 */
@@ -87,19 +84,7 @@ public class SysMenuFieldServiceImpl implements IService {
 	}
 	
 	/**
-	 * 根据条件查询菜单详情表,1实体
-	 * @param condition
-	 * @return
-	 */
-	public List<SysMenuField> findSysMenuFieldBySql(String sql) {
-		if(StringUtils.isBlank(sql)) {
-			return new ArrayList<SysMenuField>();
-		}
-		return sysMenuFieldMapper.selectSysMenuFieldBySql(sql);
-	}
-	
-	/**
-	 * 分页查询菜单详情表,1实体
+	 * 分页查询,null实体
 	 * @param condition
 	 * @param pager
 	 */
@@ -109,12 +94,6 @@ public class SysMenuFieldServiceImpl implements IService {
 		List<SysMenuField> list=sysMenuFieldMapper.selectSysMenuFieldByPager(condition);
 		int count=sysMenuFieldMapper.selectSysMenuFieldCountByPager(condition);
 		pager.searchResultHandle(list,count);
-	}
-
-	public List<SysMenuField> findSysMenuFieldByCode(String string) {
-		String sql = "SELECT * FROM `sys_menu_field` WHERE menu_id = (SELECT id FROM sys_menu WHERE `code` = '"+string+"' )";
-		List<SysMenuField> list = sysMenuFieldMapper.selectSysMenuFieldBySql(sql);
-		return list;
 	}
 
 }

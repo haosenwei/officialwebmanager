@@ -161,4 +161,14 @@ public class SysTableField implements Serializable {
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "SysTableField [id=" + id + ", menuId=" + menuId + ", columnName=" + columnName + ", dataType="
+				+ dataType + ", columnType=" + columnType + ", flength=" + flength + ", keyDic=" + keyDic
+				+ ", jspTypeDic=" + jspTypeDic + ", comment=" + comment + ", remark=" + remark + ", listTypeDic="
+				+ listTypeDic + ", addTypeDic=" + addTypeDic + ", viewTypeDic=" + viewTypeDic + ", editTypeDic="
+				+ editTypeDic + ", orderBy=" + orderBy + ", defaultValue=" + defaultValue + "]";
+	}
+
+	
 }

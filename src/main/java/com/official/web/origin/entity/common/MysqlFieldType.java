@@ -33,7 +33,7 @@ public class MysqlFieldType {
 		map.put("17", new DataTypeJavaSql("tinyblob","byte[]","TINYBLOB"));
 		map.put("18", new DataTypeJavaSql("tinytext","String","TINYTEXT"));
 		map.put("19", new DataTypeJavaSql("blob","byte[]","BLOB"));
-		map.put("20", new DataTypeJavaSql("text","String","TEXT"));
+		map.put("20", new DataTypeJavaSql("text","String","LONGVARCHAR"));
 		map.put("21", new DataTypeJavaSql("mediumblob","byte[]","MEDIUMBLOB"));
 		map.put("22", new DataTypeJavaSql("mediumtext","String","MEDIUMTEXT"));
 		map.put("23", new DataTypeJavaSql("longblob","byte[]","LONGBLOB"));

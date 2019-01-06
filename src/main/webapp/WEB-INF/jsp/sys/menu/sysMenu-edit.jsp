@@ -1,145 +1,140 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<form class="form-horizontal" id="sysMenu_edit_form" role="form">
+<%@ taglib uri="/g4m" prefix="o" %>
+<form class="layui-form" action="#">
 	<input name="" value="${sysMenu.}" type="hidden">
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-id">:</label>
-				<div class="col-sm-9">
-					<input id="form-field-id" name="id" value="${sysMenu.id}" class="form-control" type="text">
+	<div class="layui-row">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label"></label>
+				<div class="layui-input-block">
+					<input type="text" name="id" placeholder="请输入" value="${sysMenu.id}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-code">编码:</label>
-				<div class="col-sm-9">
-					<input id="form-field-code" name="code" value="${sysMenu.code}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">编码</label>
+				<div class="layui-input-block">
+					<input type="text" name="code" placeholder="请输入编码" value="${sysMenu.code}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-typeDic">类型:</label>
-				<div class="col-sm-9">
-					<input id="form-field-typeDic" name="typeDic" value="${sysMenu.typeDic}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">类型</label>
+				<div class="layui-input-block">
+					<input type="text" name="typeDic" placeholder="请输入类型" value="${sysMenu.typeDic}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-name">菜单名称:</label>
-				<div class="col-sm-9">
-					<input id="form-field-name" name="name" value="${sysMenu.name}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">菜单名称</label>
+				<div class="layui-input-block">
+					<input type="text" name="name" placeholder="请输入菜单名称" value="${sysMenu.name}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-pid">上级节点:</label>
-				<div class="col-sm-9">
-					<input id="form-field-pid" name="pid" value="${sysMenu.pid}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">上级节点</label>
+				<div class="layui-input-block">
+					<input type="text" name="pid" placeholder="请输入上级节点" value="${sysMenu.pid}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-statusDic">状态:</label>
-				<div class="col-sm-9">
-					<input id="form-field-statusDic" name="statusDic" value="${sysMenu.statusDic}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">状态</label>
+				<div class="layui-input-block">
+					<input type="text" name="statusDic" placeholder="请输入状态" value="${sysMenu.statusDic}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-url">地址:</label>
-				<div class="col-sm-9">
-					<input id="form-field-url" name="url" value="${sysMenu.url}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">地址</label>
+				<div class="layui-input-block">
+					<input type="text" name="url" placeholder="请输入地址" value="${sysMenu.url}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-path">路径:</label>
-				<div class="col-sm-9">
-					<input id="form-field-path" name="path" value="${sysMenu.path}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">路径</label>
+				<div class="layui-input-block">
+					<input type="text" name="path" placeholder="请输入路径" value="${sysMenu.path}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-icon">图标:</label>
-				<div class="col-sm-9">
-					<input id="form-field-icon" name="icon" value="${sysMenu.icon}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">图标</label>
+				<div class="layui-input-block">
+					<input type="text" name="icon" placeholder="请输入图标" value="${sysMenu.icon}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-sort">排序:</label>
-				<div class="col-sm-9">
-					<input id="form-field-sort" name="sort" value="${sysMenu.sort}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">排序</label>
+				<div class="layui-input-block">
+					<input type="text" name="sort" placeholder="请输入排序" value="${sysMenu.sort}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-remark">备注:</label>
-				<div class="col-sm-9">
-					<input id="form-field-remark" name="remark" value="${sysMenu.remark}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">备注</label>
+				<div class="layui-input-block">
+					<input type="text" name="remark" placeholder="请输入备注" value="${sysMenu.remark}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-createTime">创建时间:</label>
-				<div class="col-sm-9">
-					<input id="form-field-createTime" name="createTime" value="${sysMenu.createTime}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">创建时间</label>
+				<div class="layui-input-block">
+					<input type="text" name="createTime" placeholder="请输入创建时间" value="${sysMenu.createTime}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-modifyUerId">修改者:</label>
-				<div class="col-sm-9">
-					<input id="form-field-modifyUerId" name="modifyUerId" value="${sysMenu.modifyUerId}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">修改者</label>
+				<div class="layui-input-block">
+					<input type="text" name="modifyUerId" placeholder="请输入修改者" value="${sysMenu.modifyUerId}" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
-	
-	
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="form-field-modifyTime">修改时间:</label>
-				<div class="col-sm-9">
-					<input id="form-field-modifyTime" name="modifyTime" value="${sysMenu.modifyTime}" class="form-control" type="text">
+		<div class="layui-col-xs6">
+			<div class="layui-form-item">
+				<label class="layui-form-label">修改时间</label>
+				<div class="layui-input-block">
+					<input type="text" name="modifyTime" placeholder="请输入修改时间" value="${sysMenu.modifyTime}" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-xs12">
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button class="layui-btn" lay-submit lay-filter="sysMenu_edit">确定修改</button>
+					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </form>
+
+<script>
+	//Demo
+	layui.use(['form','common'], function() {
+		var form = layui.form,common = layui.common;
+		//监听提交
+		form.on('submit(sysMenu_add)', function(data) {
+			common.ajaxTableData("${server}sys/menu/doEdit?${_csrf.parameterName}=${_csrf.token}",data.field);
+			return false;
+		});
+		form.render();
+	});
+</script>

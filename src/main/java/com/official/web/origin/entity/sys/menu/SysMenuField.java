@@ -6,7 +6,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
- * 菜单详情表,1实体类
+ * ,null实体类
  * 
  * @author hsw
  *

@@ -16,7 +16,7 @@ public class Pager implements Serializable{
 	private int recordsFiltered;
 	private List data=new ArrayList<>();
 	private int offset;
-	
+	private int status = 0;
 	
 	public int getLength() {
 		return length;
@@ -59,5 +59,12 @@ public class Pager implements Serializable{
 		this.recordsFiltered =  count;
 		this.recordsTotal = count;
 	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 }
 

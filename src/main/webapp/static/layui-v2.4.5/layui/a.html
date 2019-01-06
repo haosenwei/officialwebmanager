@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://localhost:8083/?code=sys_menu -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>开始使用layui</title>
+<link rel="stylesheet" href="./css/layui.css">
+<link id="layuicss-layer" rel="stylesheet" href="./css/layer.css" media="all"></head>
+<body class="layui-layout-body" style="">
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header">
+			<div class="layui-logo">layui 后台布局</div>
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<ul class="layui-nav layui-layout-left">
+				<li class="layui-nav-item"><a href="http://localhost:8083/?code=sys_menu">控制台</a></li>
+				<li class="layui-nav-item"><a href="http://localhost:8083/?code=sys_menu">商品管理</a></li>
+				<li class="layui-nav-item"><a href="http://localhost:8083/?code=sys_menu">用户</a></li>
+				<li class="layui-nav-item"><a href="javascript:;">其它系统<span class="layui-nav-more"></span></a>
+					<dl class="layui-nav-child layui-anim layui-anim-upbit">
+						<dd>
+							<a href="http://localhost:8083/?code=sys_menu">邮件管理</a>
+						</dd>
+						<dd>
+							<a href="http://localhost:8083/?code=sys_menu">消息管理</a>
+						</dd>
+						<dd>
+							<a href="http://localhost:8083/?code=sys_menu">授权管理</a>
+						</dd>
+					</dl></li>
+			<span class="layui-nav-bar" style="left: 266px; top: 55px; width: 0px; opacity: 0;"></span></ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item"><a href="javascript:;"> <img src="./开始使用layui_files/RCzsdCq" class="layui-nav-img"> 贤心
+				<span class="layui-nav-more"></span></a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="http://localhost:8083/?code=sys_menu">基本资料</a>
+						</dd>
+						<dd>
+							<a href="http://localhost:8083/?code=sys_menu">安全设置</a>
+						</dd>
+					</dl></li>
+				<li class="layui-nav-item"><a href="http://localhost:8083/?code=sys_menu">退了</a></li>
+			<span class="layui-nav-bar" style="left: 131.891px; top: 55px; width: 0px; opacity: 0;"></span></ul>
+		</div>
+
+		<div class="layui-side layui-bg-black">
+			<div class="layui-side-scroll">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+				<ul class="layui-nav layui-nav-tree" id="menuID" lay-filter="test">
+					
+				<span class="layui-nav-bar"></span><li class="layui-nav-item"><a class="menu" data-value="product" href="javascript:;">商户管理</a></li><li class="layui-nav-item"><a href="javascript:;">系统<span class="layui-nav-more"></span></a><dl class="layui-nav-child"><a class="menu" data-value="sys/menu" href="javascript:;">菜单表</a></dl></li><li class="layui-nav-item"><a href="javascript:;">用户2<span class="layui-nav-more"></span></a><dl class="layui-nav-child"><a class="menu" href="javascript:;">用户信息</a></dl></li></ul>
+			</div>
+		</div>
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 15px;">
+				<div class="layui-tab" lay-allowclose="true" lay-filter="demo">
+					<ul class="layui-tab-title">
+						<li class="">网站设置<i class="layui-icon layui-unselect layui-tab-close">ဆ</i></li>
+					<li lay-id="sys_menu" class="">菜单表<i class="layui-icon layui-unselect layui-tab-close">ဆ</i></li><li lay-id="sys_menu_add" class="layui-this">新增菜单详情<i class="layui-icon layui-unselect layui-tab-close">ဆ</i></li></ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item">1</div>
+					<div class="layui-tab-item">
+
+
+<title>菜单详情表-</title>
+
+<div class="layui-row">
+	<div class="layui-col-md12">
+		<form class="layui-form" id="sys_menu_search_form" action="http://localhost:8083/?code=sys_menu#">
+			<div class="layui-row">
+				<div class="layui-col-md3">
+					<div class="layui-form-item">
+						<label class="layui-form-label">输入框</label>
+						<div class="layui-input-block">
+							<input type="text" name="search_code" required="" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md4">
+					<a id="sys_menu_search_btn" class="layui-btn">搜索</a>
+					<a id="sys_menu_reset" class="layui-btn">重置</a>
+					<a id="sys_menu_add" class="layui-btn">新增</a> <a id="sys_menu_dels" class="layui-btn">删除</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="layui-col-md12">
+		<table id="sysMenuTable" lay-filter="sysMenuTable"></table><div class="layui-form layui-border-box layui-table-view" lay-filter="LAY-table-1" lay-id="sysMenuTableTest" style=" "><div class="layui-table-box"><div class="layui-table-header"><table cellspacing="0" cellpadding="0" border="0" class="layui-table"><thead><tr><th data-field="0" data-key="1-0-0" data-unresize="true" class=" layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox" lay-skin="primary" lay-filter="layTableAllChoose"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div></div></th><th data-field="id" data-key="1-0-1" data-unresize="true" class=""><div class="layui-table-cell laytable-cell-1-0-1 laytable-cell-radio"><span>id</span></div></th><th data-field="id" data-key="1-0-2" class=""><div class="layui-table-cell laytable-cell-1-0-2"><span></span></div></th><th data-field="code" data-key="1-0-3" class=""><div class="layui-table-cell laytable-cell-1-0-3"><span>编码</span></div></th><th data-field="typeDic" data-key="1-0-4" class=""><div class="layui-table-cell laytable-cell-1-0-4"><span>类型</span></div></th><th data-field="name" data-key="1-0-5" class=""><div class="layui-table-cell laytable-cell-1-0-5"><span>菜单名称</span></div></th><th data-field="pid" data-key="1-0-6" class=""><div class="layui-table-cell laytable-cell-1-0-6"><span>上级节点</span></div></th><th data-field="statusDic" data-key="1-0-7" class=""><div class="layui-table-cell laytable-cell-1-0-7"><span>状态</span></div></th><th data-field="url" data-key="1-0-8" class=""><div class="layui-table-cell laytable-cell-1-0-8"><span>地址</span></div></th><th data-field="path" data-key="1-0-9" class=""><div class="layui-table-cell laytable-cell-1-0-9"><span>路径</span></div></th><th data-field="icon" data-key="1-0-10" class=""><div class="layui-table-cell laytable-cell-1-0-10"><span>图标</span></div></th><th data-field="sort" data-key="1-0-11" class=""><div class="layui-table-cell laytable-cell-1-0-11"><span>排序</span></div></th><th data-field="remark" data-key="1-0-12" class=""><div class="layui-table-cell laytable-cell-1-0-12"><span>备注</span></div></th><th data-field="createTime" data-key="1-0-13" class=""><div class="layui-table-cell laytable-cell-1-0-13"><span>创建时间</span></div></th><th data-field="modifyUerId" data-key="1-0-14" class=""><div class="layui-table-cell laytable-cell-1-0-14"><span>修改者</span></div></th><th data-field="modifyTime" data-key="1-0-15" class=""><div class="layui-table-cell laytable-cell-1-0-15"><span>修改时间</span></div></th><th data-field="16" data-key="1-0-16" class=" layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-16"><span></span></div></th></tr></thead></table></div><div class="layui-table-body layui-table-main"><table cellspacing="0" cellpadding="0" border="0" class="layui-table"><tbody><tr data-index="0" class=""><td data-field="0" data-key="1-0-0" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox" lay-skin="primary"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div></div></td><td data-field="id" data-key="1-0-1" class=""><div class="layui-table-cell laytable-cell-1-0-1 laytable-cell-radio"><input type="radio" name="layTableRadio_1" lay-type="layTableRadio"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div></div></div></div></td><td data-field="id" data-key="1-0-2" class=""><div class="layui-table-cell laytable-cell-1-0-2">1</div></td><td data-field="code" data-key="1-0-3" class=""><div class="layui-table-cell laytable-cell-1-0-3">sys</div></td><td data-field="typeDic" data-key="1-0-4" class=""><div class="layui-table-cell laytable-cell-1-0-4">1</div></td><td data-field="name" data-key="1-0-5" class=""><div class="layui-table-cell laytable-cell-1-0-5">系统</div></td><td data-field="pid" data-key="1-0-6" class=""><div class="layui-table-cell laytable-cell-1-0-6">0</div></td><td data-field="statusDic" data-key="1-0-7" class=""><div class="layui-table-cell laytable-cell-1-0-7">1</div></td><td data-field="url" data-key="1-0-8" class=""><div class="layui-table-cell laytable-cell-1-0-8">sys</div></td><td data-field="path" data-key="1-0-9" class=""><div class="layui-table-cell laytable-cell-1-0-9"></div></td><td data-field="icon" data-key="1-0-10" class=""><div class="layui-table-cell laytable-cell-1-0-10"></div></td><td data-field="sort" data-key="1-0-11" class=""><div class="layui-table-cell laytable-cell-1-0-11">1</div></td><td data-field="remark" data-key="1-0-12" class=""><div class="layui-table-cell laytable-cell-1-0-12">1</div></td><td data-field="createTime" data-key="1-0-13" class=""><div class="layui-table-cell laytable-cell-1-0-13">1546096940000</div></td><td data-field="modifyUerId" data-key="1-0-14" class=""><div class="layui-table-cell laytable-cell-1-0-14"></div></td><td data-field="modifyTime" data-key="1-0-15" class=""><div class="layui-table-cell laytable-cell-1-0-15">1546096940000</div></td><td data-field="16" data-key="1-0-16" data-content="" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-16"><div class="layui-btn-group"><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"> <i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i> </button></div></div></td></tr><tr data-index="1" class=""><td data-field="0" data-key="1-0-0" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox" lay-skin="primary"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div></div></td><td data-field="id" data-key="1-0-1" class=""><div class="layui-table-cell laytable-cell-1-0-1 laytable-cell-radio"><input type="radio" name="layTableRadio_1" lay-type="layTableRadio"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div></div></div></div></td><td data-field="id" data-key="1-0-2" class=""><div class="layui-table-cell laytable-cell-1-0-2">2</div></td><td data-field="code" data-key="1-0-3" class=""><div class="layui-table-cell laytable-cell-1-0-3">user</div></td><td data-field="typeDic" data-key="1-0-4" class=""><div class="layui-table-cell laytable-cell-1-0-4">1</div></td><td data-field="name" data-key="1-0-5" class=""><div class="layui-table-cell laytable-cell-1-0-5">用户2</div></td><td data-field="pid" data-key="1-0-6" class=""><div class="layui-table-cell laytable-cell-1-0-6">0</div></td><td data-field="statusDic" data-key="1-0-7" class=""><div class="layui-table-cell laytable-cell-1-0-7">1</div></td><td data-field="url" data-key="1-0-8" class=""><div class="layui-table-cell laytable-cell-1-0-8">sys/user</div></td><td data-field="path" data-key="1-0-9" class=""><div class="layui-table-cell laytable-cell-1-0-9"></div></td><td data-field="icon" data-key="1-0-10" class=""><div class="layui-table-cell laytable-cell-1-0-10"></div></td><td data-field="sort" data-key="1-0-11" class=""><div class="layui-table-cell laytable-cell-1-0-11">1</div></td><td data-field="remark" data-key="1-0-12" class=""><div class="layui-table-cell laytable-cell-1-0-12">1</div></td><td data-field="createTime" data-key="1-0-13" class=""><div class="layui-table-cell laytable-cell-1-0-13">1546096954000</div></td><td data-field="modifyUerId" data-key="1-0-14" class=""><div class="layui-table-cell laytable-cell-1-0-14"></div></td><td data-field="modifyTime" data-key="1-0-15" class=""><div class="layui-table-cell laytable-cell-1-0-15">1546096954000</div></td><td data-field="16" data-key="1-0-16" data-content="" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-16"><div class="layui-btn-group"><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"> <i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i> </button></div></div></td></tr><tr data-index="2"><td data-field="0" data-key="1-0-0" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox" lay-skin="primary"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div></div></td><td data-field="id" data-key="1-0-1" class=""><div class="layui-table-cell laytable-cell-1-0-1 laytable-cell-radio"><input type="radio" name="layTableRadio_1" lay-type="layTableRadio"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div></div></div></div></td><td data-field="id" data-key="1-0-2" class=""><div class="layui-table-cell laytable-cell-1-0-2">3</div></td><td data-field="code" data-key="1-0-3" class=""><div class="layui-table-cell laytable-cell-1-0-3">business</div></td><td data-field="typeDic" data-key="1-0-4" class=""><div class="layui-table-cell laytable-cell-1-0-4">1</div></td><td data-field="name" data-key="1-0-5" class=""><div class="layui-table-cell laytable-cell-1-0-5">商户管理</div></td><td data-field="pid" data-key="1-0-6" class=""><div class="layui-table-cell laytable-cell-1-0-6">0</div></td><td data-field="statusDic" data-key="1-0-7" class=""><div class="layui-table-cell laytable-cell-1-0-7">1</div></td><td data-field="url" data-key="1-0-8" class=""><div class="layui-table-cell laytable-cell-1-0-8">product</div></td><td data-field="path" data-key="1-0-9" class=""><div class="layui-table-cell laytable-cell-1-0-9"></div></td><td data-field="icon" data-key="1-0-10" class=""><div class="layui-table-cell laytable-cell-1-0-10"></div></td><td data-field="sort" data-key="1-0-11" class=""><div class="layui-table-cell laytable-cell-1-0-11">0</div></td><td data-field="remark" data-key="1-0-12" class=""><div class="layui-table-cell laytable-cell-1-0-12"></div></td><td data-field="createTime" data-key="1-0-13" class=""><div class="layui-table-cell laytable-cell-1-0-13">1545457573000</div></td><td data-field="modifyUerId" data-key="1-0-14" class=""><div class="layui-table-cell laytable-cell-1-0-14"></div></td><td data-field="modifyTime" data-key="1-0-15" class=""><div class="layui-table-cell laytable-cell-1-0-15">1545457573000</div></td><td data-field="16" data-key="1-0-16" data-content="" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-16"><div class="layui-btn-group"><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"> <i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i> </button></div></div></td></tr><tr data-index="3"><td data-field="0" data-key="1-0-0" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox" lay-skin="primary"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div></div></td><td data-field="id" data-key="1-0-1" class=""><div class="layui-table-cell laytable-cell-1-0-1 laytable-cell-radio"><input type="radio" name="layTableRadio_1" lay-type="layTableRadio"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div></div></div></div></td><td data-field="id" data-key="1-0-2" class=""><div class="layui-table-cell laytable-cell-1-0-2">4</div></td><td data-field="code" data-key="1-0-3" class=""><div class="layui-table-cell laytable-cell-1-0-3">user_info</div></td><td data-field="typeDic" data-key="1-0-4" class=""><div class="layui-table-cell laytable-cell-1-0-4">2</div></td><td data-field="name" data-key="1-0-5" class=""><div class="layui-table-cell laytable-cell-1-0-5">用户信息</div></td><td data-field="pid" data-key="1-0-6" class=""><div class="layui-table-cell laytable-cell-1-0-6">2</div></td><td data-field="statusDic" data-key="1-0-7" class=""><div class="layui-table-cell laytable-cell-1-0-7"></div></td><td data-field="url" data-key="1-0-8" class=""><div class="layui-table-cell laytable-cell-1-0-8"></div></td><td data-field="path" data-key="1-0-9" class=""><div class="layui-table-cell laytable-cell-1-0-9"></div></td><td data-field="icon" data-key="1-0-10" class=""><div class="layui-table-cell laytable-cell-1-0-10"></div></td><td data-field="sort" data-key="1-0-11" class=""><div class="layui-table-cell laytable-cell-1-0-11">0</div></td><td data-field="remark" data-key="1-0-12" class=""><div class="layui-table-cell laytable-cell-1-0-12"></div></td><td data-field="createTime" data-key="1-0-13" class=""><div class="layui-table-cell laytable-cell-1-0-13">1545457419000</div></td><td data-field="modifyUerId" data-key="1-0-14" class=""><div class="layui-table-cell laytable-cell-1-0-14"></div></td><td data-field="modifyTime" data-key="1-0-15" class=""><div class="layui-table-cell laytable-cell-1-0-15">1545457419000</div></td><td data-field="16" data-key="1-0-16" data-content="" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-16"><div class="layui-btn-group"><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"> <i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i> </button></div></div></td></tr><tr data-index="4"><td data-field="0" data-key="1-0-0" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox" lay-skin="primary"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div></div></td><td data-field="id" data-key="1-0-1" class=""><div class="layui-table-cell laytable-cell-1-0-1 laytable-cell-radio"><input type="radio" name="layTableRadio_1" lay-type="layTableRadio"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div></div></div></div></td><td data-field="id" data-key="1-0-2" class=""><div class="layui-table-cell laytable-cell-1-0-2">19</div></td><td data-field="code" data-key="1-0-3" class=""><div class="layui-table-cell laytable-cell-1-0-3">sys_menu</div></td><td data-field="typeDic" data-key="1-0-4" class=""><div class="layui-table-cell laytable-cell-1-0-4">4</div></td><td data-field="name" data-key="1-0-5" class=""><div class="layui-table-cell laytable-cell-1-0-5">菜单表</div></td><td data-field="pid" data-key="1-0-6" class=""><div class="layui-table-cell laytable-cell-1-0-6">1</div></td><td data-field="statusDic" data-key="1-0-7" class=""><div class="layui-table-cell laytable-cell-1-0-7">1</div></td><td data-field="url" data-key="1-0-8" class=""><div class="layui-table-cell laytable-cell-1-0-8">sys/menu</div></td><td data-field="path" data-key="1-0-9" class=""><div class="layui-table-cell laytable-cell-1-0-9"></div></td><td data-field="icon" data-key="1-0-10" class=""><div class="layui-table-cell laytable-cell-1-0-10"></div></td><td data-field="sort" data-key="1-0-11" class=""><div class="layui-table-cell laytable-cell-1-0-11">1</div></td><td data-field="remark" data-key="1-0-12" class=""><div class="layui-table-cell laytable-cell-1-0-12">1</div></td><td data-field="createTime" data-key="1-0-13" class=""><div class="layui-table-cell laytable-cell-1-0-13">1545453498000</div></td><td data-field="modifyUerId" data-key="1-0-14" class=""><div class="layui-table-cell laytable-cell-1-0-14"></div></td><td data-field="modifyTime" data-key="1-0-15" class=""><div class="layui-table-cell laytable-cell-1-0-15">1545453498000</div></td><td data-field="16" data-key="1-0-16" data-content="" class="layui-table-col-special"><div class="layui-table-cell laytable-cell-1-0-16"><div class="layui-btn-group"><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"> <i class="layui-icon"></i></button><button class="layui-btn layui-btn-sm"><i class="layui-icon"></i> </button></div></div></td></tr></tbody></table></div></div><div class="layui-table-page"><div id="layui-table-page1"><div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><a href="javascript:;" class="layui-laypage-prev layui-disabled" data-page="0"><i class="layui-icon"></i></a><span class="layui-laypage-curr"><em class="layui-laypage-em"></em><em>1</em></span><a href="javascript:;" class="layui-laypage-next layui-disabled" data-page="2"><i class="layui-icon"></i></a><span class="layui-laypage-skip">到第<input type="text" min="1" value="1" class="layui-input">页<button type="button" class="layui-laypage-btn">确定</button></span><span class="layui-laypage-count">共 5 条</span><span class="layui-laypage-limits"><select lay-ignore=""><option value="10" selected="">10 条/页</option><option value="20">20 条/页</option><option value="30">30 条/页</option><option value="40">40 条/页</option><option value="50">50 条/页</option><option value="60">60 条/页</option><option value="70">70 条/页</option><option value="80">80 条/页</option><option value="90">90 条/页</option></select></span></div></div></div><style>.laytable-cell-1-0-0{ width: 48px; }.laytable-cell-1-0-1{ width: 48px; }.laytable-cell-1-0-2{  }.laytable-cell-1-0-3{  }.laytable-cell-1-0-4{  }.laytable-cell-1-0-5{  }.laytable-cell-1-0-6{  }.laytable-cell-1-0-7{  }.laytable-cell-1-0-8{  }.laytable-cell-1-0-9{  }.laytable-cell-1-0-10{  }.laytable-cell-1-0-11{  }.laytable-cell-1-0-12{  }.laytable-cell-1-0-13{  }.laytable-cell-1-0-14{  }.laytable-cell-1-0-15{  }.laytable-cell-1-0-16{  }</style></div>
+	</div>
+
+	
+</div>
+<script>
+	layui.use(['jquery', 'common' ], function() {
+		var table = layui.table ,$ = layui.jquery, common = layui.common;
+		var colNames = [ [ //表头
+			{
+				checkbox : true
+			},
+			{field : "id",
+				LAY_CHECKED : false,
+				type : 'radio',
+				title : "id"
+			},
+			
+			{
+				field : "id",
+				title : ""
+			},
+			
+			{
+				field : "code",
+				title : "编码"
+			},
+			
+			{
+				field : "typeDic",
+				title : "类型"
+			},
+			
+			{
+				field : "name",
+				title : "菜单名称"
+			},
+			
+			{
+				field : "pid",
+				title : "上级节点"
+			},
+			
+			{
+				field : "statusDic",
+				title : "状态"
+			},
+			
+			{
+				field : "url",
+				title : "地址"
+			},
+			
+			{
+				field : "path",
+				title : "路径"
+			},
+			
+			{
+				field : "icon",
+				title : "图标"
+			},
+			
+			{
+				field : "sort",
+				title : "排序"
+			},
+			
+			{
+				field : "remark",
+				title : "备注"
+			},
+			
+			{
+				field : "createTime",
+				title : "创建时间"
+			},
+			
+			{
+				field : "modifyUerId",
+				title : "修改者"
+			},
+			
+			{
+				field : "modifyTime",
+				title : "修改时间"
+			},
+			
+			{
+				templet : function(d) {
+					return '<div class="layui-btn-group">'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ '<i class="layui-icon">&#xe654;</i>'
+							+ '</button>'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ ' <i class="layui-icon">&#xe642;</i>'
+							+ '</button>'
+							+ '<button class="layui-btn layui-btn-sm">'
+							+ '<i class="layui-icon">&#xe640;</i>'
+							+ ' </button>' + '</div>';
+				}
+			} ] ];
+		common.renderTable('sysMenu','sys/menu',colNames);
+		$(document).on('click', '#sys_menu_search_btn', function() {
+			table.reload('sysMenuTableTest', {
+				where : common.getParam('sys_menu_search_form'),
+				page : {
+					curr : 0
+				//重新从第 1 页开始
+				}
+			});
+		});
+		$(document).on('click', '#sys_menu_add', function() {
+			common.addTab('sys/menu/toAdd', 'sys_menu_add', '新增菜单详情'); //url , code, name
+		});
+	});
+</script></div><div class="layui-tab-item layui-show">
+<form class="layui-form" action="http://localhost:8083/?code=sys_menu#">
+	<div class="layui-form-item">
+		<label class="layui-form-label">输入框</label>
+		<div class="layui-input-block">
+			<input type="text" name="title" required="" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">密码框</label>
+		<div class="layui-input-inline">
+			<input type="password" name="password" required="" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux">辅助文字</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">选择框</label>
+		<div class="">
+			<select name="city" lay-verify="required">
+				<option value=""></option>
+				<option value="0">北京</option>
+				<option value="1">上海</option>
+				<option value="2">广州</option>
+				<option value="3">深圳</option>
+				<option value="4">杭州</option>
+			</select>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">复选框</label>
+		<div class="layui-input-block">
+			<input type="checkbox" name="like[write]" title="写作"> <input type="checkbox" name="like[read]" title="阅读" checked=""> <input type="checkbox" name="like[dai]" title="发呆">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">开关</label>
+		<div class="layui-input-block">
+			<input type="checkbox" name="switch" lay-skin="switch">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">单选框</label>
+		<div class="layui-input-block">
+			<input type="radio" name="sex" value="男" title="男"> <input type="radio" name="sex" value="女" title="女" checked="">
+		</div>
+	</div>
+	<div class="layui-form-item layui-form-text">
+		<label class="layui-form-label">文本域</label>
+		<div class="layui-input-block">
+			<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button class="layui-btn" lay-submit="" lay-filter="formDemo">立即提交</button>
+			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		</div>
+	</div>
+</form>
+
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script></div></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-footer">
+			<!-- 底部固定区域 -->
+			© layui.com - 底部固定区域
+		</div>
+	</div>
+
+	<script src="./layui.js"></script>
+	<script>
+		//一般直接写在一个js文件中
+		layui.config({
+			base : '/static/js/module/'
+		}).use([ 'layer', 'form', 'element','sysMenu'],
+		function() {
+			var sysMenu = layui.sysMenu;
+			sysMenu.loadMenu();
+		});
+	</script>
+
+</body></html>

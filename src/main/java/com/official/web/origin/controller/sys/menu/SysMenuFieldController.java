@@ -1,6 +1,5 @@
-package com.official.web.origin.controller.sys.menu;
+﻿package com.official.web.origin.controller.sys.menu;
 
-import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
-import com.official.web.origin.entity.common.LayuiDataResult;
 import com.official.web.origin.entity.common.Pager;
 import com.official.web.origin.entity.common.Result;
 import com.official.web.origin.entity.sys.menu.SysMenuField;
@@ -62,7 +60,7 @@ public class SysMenuFieldController {
 	 * @param
 	 * @return
 	 */
-	@RequestMapping("doAdd")
+	@RequestMapping(value="doAdd",method=RequestMethod.POST)
 	@ResponseBody
 	public Result doAdd(SysMenuField sysMenuFieldForm){
 		logger.info("sysMenuField doAdd");
@@ -89,7 +87,7 @@ public class SysMenuFieldController {
 	 * @param sysMenuFieldForm
 	 * @return
 	 */
-	@RequestMapping("doEdit")
+	@RequestMapping(value="doEdit",method=RequestMethod.POST)
 	@ResponseBody
 	public Result doEdit(SysMenuField sysMenuFieldForm){
 		logger.info("sysMenuField doEdit");
@@ -102,7 +100,7 @@ public class SysMenuFieldController {
 	 * @param ids
 	 * @return
 	 */
-	@RequestMapping("del")
+	@RequestMapping(value="del",method=RequestMethod.POST)
 	@ResponseBody
 	public Result del(String ids){
 		logger.info("sysMenuField doEdit");
@@ -130,17 +128,13 @@ public class SysMenuFieldController {
 	 * @param pager
 	 * @return
 	 */
-	@RequestMapping(value="search" ,method=RequestMethod.GET)
+	@RequestMapping(value="search" ,method=RequestMethod.POST)
 	@ResponseBody
-	public LayuiDataResult search(HttpServletRequest request,Pager pager){
+	public Pager search(HttpServletRequest request,Pager pager){
 		logger.info("sysMenuField search");
 		Map<String, Object> condition=WebUtils.getParametersStartingWith(request, "search_");
 		sysMenuFieldServiceImpl.findSysMenuFieldByPager(condition, pager);
-		List data = pager.getData();
-		LayuiDataResult layuiDataResult = new LayuiDataResult();
-		layuiDataResult.setData(data);
-		layuiDataResult.setCount(pager.getRecordsTotal());
-		return layuiDataResult;
+		return pager;
 	}
 	
 	/**
@@ -160,7 +154,7 @@ public class SysMenuFieldController {
 	 * @param pager
 	 * @return
 	 */
-	@RequestMapping("dialogSearch")
+	@RequestMapping(value="dialogSearch",method=RequestMethod.POST)
 	@ResponseBody
 	public Pager dialogSearch(HttpServletRequest request,Pager pager){
 		logger.info("sysMenuField dialogSearch");

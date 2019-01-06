@@ -12,11 +12,11 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public final class JdbcUtils {
-	private static String url = "59.110.218.135";
+	private static String url = "localhost";
 //	private static String url = "jdbc:mysql://59.110.218.135:3306/g4m";
 	private static String databaseName = "g4m";
 	private static String user = "root";
-	private static String password = "123456";
+	private static String password = "Murong123";
 	private static DataSource myDataSource = null;
 
 
@@ -26,7 +26,7 @@ public final class JdbcUtils {
 		config.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
 //		config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
 		config.addDataSourceProperty("serverName", url);
-		config.addDataSourceProperty("port", 3306);
+		config.addDataSourceProperty("port", 5555);
 		config.addDataSourceProperty("databaseName", databaseName);
 		config.addDataSourceProperty("user", user);
 		config.addDataSourceProperty("password", password);
