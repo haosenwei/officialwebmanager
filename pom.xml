@@ -105,8 +105,15 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+
 	</dependencies>
+
 	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.springframework.cloud</groupId> 
 		<artifactId>spring-cloud-dependencies</artifactId> <version>Finchley.SR1</version> 
 		<type>pom</type> <scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
