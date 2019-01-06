@@ -63,7 +63,7 @@
 				}
 			});
 		});
-		$("#authRole").off('click').on('click', function(){
+		$("#authRole_add").off('click').on('click', function(){
 			common.addTab("${server}auth/role/toAdd?${_csrf.parameterName}=${_csrf.token}", 'authRole_add', '新增角色表'); //url , code, name
 		});
 	});

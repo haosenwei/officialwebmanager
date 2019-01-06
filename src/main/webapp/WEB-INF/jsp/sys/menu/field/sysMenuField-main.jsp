@@ -76,7 +76,7 @@
 				}
 			});
 		});
-		$("#sysMenuField").off('click').on('click', function(){
+		$("#sysMenuField_add").off('click').on('click', function(){
 			common.addTab("${server}sys/menu/field/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysMenuField_add', '新增菜单详情表'); //url , code, name
 		});
 	});

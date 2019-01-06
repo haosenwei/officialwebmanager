@@ -63,7 +63,7 @@
 				}
 			});
 		});
-		$("#sysLog").off('click').on('click', function(){
+		$("#sysLog_add").off('click').on('click', function(){
 			common.addTab("${server}sys/log/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysLog_add', '新增日志表'); //url , code, name
 		});
 	});

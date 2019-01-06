@@ -65,7 +65,7 @@
 				}
 			});
 		});
-		$("#sysDicItem").off('click').on('click', function(){
+		$("#sysDicItem_add").off('click').on('click', function(){
 			common.addTab("${server}sys/dic/item/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysDicItem_add', '新增数据字典详情表'); //url , code, name
 		});
 	});

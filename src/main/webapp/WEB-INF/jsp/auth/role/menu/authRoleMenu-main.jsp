@@ -61,7 +61,7 @@
 				}
 			});
 		});
-		$("#authRoleMenu").off('click').on('click', function(){
+		$("#authRoleMenu_add").off('click').on('click', function(){
 			common.addTab("${server}auth/role/menu/toAdd?${_csrf.parameterName}=${_csrf.token}", 'authRoleMenu_add', '新增角色菜单'); //url , code, name
 		});
 	});

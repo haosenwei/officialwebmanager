@@ -61,7 +61,7 @@
 				}
 			});
 		});
-		$("#sysDicAuth").off('click').on('click', function(){
+		$("#sysDicAuth_add").off('click').on('click', function(){
 			common.addTab("${server}sys/dic/auth/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysDicAuth_add', '新增菜单字典权限'); //url , code, name
 		});
 	});

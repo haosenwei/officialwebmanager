@@ -71,7 +71,7 @@
 				}
 			});
 		});
-		$("#sysUser").off('click').on('click', function(){
+		$("#sysUser_add").off('click').on('click', function(){
 			common.addTab("${server}sys/user/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysUser_add', '新增用户表'); //url , code, name
 		});
 	});

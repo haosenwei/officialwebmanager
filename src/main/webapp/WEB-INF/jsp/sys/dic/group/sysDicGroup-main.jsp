@@ -64,7 +64,7 @@
 				}
 			});
 		});
-		$("#sysDicGroup").off('click').on('click', function(){
+		$("#sysDicGroup_add").off('click').on('click', function(){
 			common.addTab("${server}sys/dic/group/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysDicGroup_add', '新增数据字典分组表'); //url , code, name
 		});
 	});

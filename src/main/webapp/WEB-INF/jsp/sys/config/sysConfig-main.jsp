@@ -63,7 +63,7 @@
 				}
 			});
 		});
-		$("#sysConfig").off('click').on('click', function(){
+		$("#sysConfig_add").off('click').on('click', function(){
 			common.addTab("${server}sys/config/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysConfig_add', '新增系统配置表'); //url , code, name
 		});
 	});

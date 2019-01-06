@@ -68,7 +68,7 @@
 				}
 			});
 		});
-		$("#accessRecord").off('click').on('click', function(){
+		$("#accessRecord_add").off('click').on('click', function(){
 			common.addTab("${server}access/record/toAdd?${_csrf.parameterName}=${_csrf.token}", 'accessRecord_add', '新增访问记录表'); //url , code, name
 		});
 	});
