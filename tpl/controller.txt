@@ -1,4 +1,4 @@
-﻿package ${prefix}.controller${spacePrefix};
+package ${prefix}.controller${spacePrefix};
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;

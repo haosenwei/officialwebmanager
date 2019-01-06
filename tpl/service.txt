@@ -1,4 +1,4 @@
-﻿package ${prefix}.service${spacePrefix};
+package ${prefix}.service${spacePrefix};
 
 import java.util.List;
 import java.util.Map;
