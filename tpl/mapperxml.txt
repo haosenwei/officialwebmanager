@@ -104,8 +104,13 @@
 	<select id="select${EntityName}CountByPager" parameterType="Map" resultType="int">
 		select
 		count(1)
-		from ${table_name}
+		from ${table_name} t
 		where 1 = 1 <include refid="dynamicWhere" />
 	</select>
 	<!-- end 分页查询 -->
+	
+	<!-- 通过sql查询 -->
+	<select id="select${EntityName}BySql" parameterType="Map" resultMap="${EntityName}Bean">
+		${r"$"}{sql}
+	</select>
 </mapper>

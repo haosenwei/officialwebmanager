@@ -58,7 +58,7 @@ public interface ${EntityName}Mapper {
 	 * @return
 	 */
 	public List<${EntityName}> select${EntityName}ByCondition(Map<String, Object> map);
-	
+
 	/**
 	 * 分页查询${comment!}实体
 	 * @param map
@@ -73,4 +73,10 @@ public interface ${EntityName}Mapper {
 	 */
 	public int select${EntityName}CountByPager(Map<String, Object> condition);
 
+	/**
+	 * sql查询${comment!}实体
+	 * @param sql
+	 * @return
+	 */
+	public List<${EntityName}> select${EntityName}BySql(@Param("sql")String sql);
 }
