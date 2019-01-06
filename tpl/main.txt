@@ -61,7 +61,7 @@
 				}
 			});
 		});
-		$("#${entityName}").off('click').on('click', function(){
+		$("#${entityName}_add").off('click').on('click', function(){
 			common.addTab("${r"${server}"}${urlPrefix}toAdd?${r"${_csrf.parameterName}=${_csrf.token}"}", '${entityName}_add', '新增${menuName}'); //url , code, name
 		});
 	});
