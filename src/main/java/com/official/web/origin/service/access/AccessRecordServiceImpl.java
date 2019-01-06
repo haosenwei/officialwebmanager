@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.service.access;
+package com.official.web.origin.service.access;
 
 import java.util.List;
 import java.util.Map;

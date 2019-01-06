@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<title>-${sessionScope.sysTitle}</title>
+<title>系统配置表-${sessionScope.sysTitle}</title>
 
 <div class="row">
 	<div class="col-xs-12">
@@ -50,15 +50,15 @@
 
 	//添加
 	$('#sysConfigDialog_aceAdd').on('click',function() {
-		aceAdd("添加","${server}sys/config/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/config/doAdd?${_csrf.parameterName}=${_csrf.token}","sysConfig_add_form","sysConfigDialog");
+		aceAdd("添加系统配置表","${server}sys/config/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/config/doAdd?${_csrf.parameterName}=${_csrf.token}","sysConfig_add_form","sysConfigDialog");
 	});
 	//修改
 	function aceEditf(id) {
-		aceEdit(id,"修改","${server}sys/config/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/config/doEdit?${_csrf.parameterName}=${_csrf.token}","sysConfig_edit_form","sysConfigDialog");
+		aceEdit(id,"修改系统配置表","${server}sys/config/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/config/doEdit?${_csrf.parameterName}=${_csrf.token}","sysConfig_edit_form","sysConfigDialog");
 	}
 	//查看
 	function aceViewf(id) {
-		aceView(id,"查看","${server}sys/config/toView?${_csrf.parameterName}=${_csrf.token}");
+		aceView(id,"查看系统配置表","${server}sys/config/toView?${_csrf.parameterName}=${_csrf.token}");
 	}
 	
 	//删除

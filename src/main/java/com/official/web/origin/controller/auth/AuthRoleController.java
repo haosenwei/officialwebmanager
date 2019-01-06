@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.controller.auth;
+package com.official.web.origin.controller.auth;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/g4m" prefix="o" %>
 
-<title>-${sessionScope.sysTitle}</title>
+<title>日志表-${sessionScope.sysTitle}</title>
 
 <div class="layui-row">
 	<div class="layui-col-md12">
@@ -64,7 +64,7 @@
 			});
 		});
 		$("#sysLog").off('click').on('click', function(){
-			common.addTab("${server}sys/log/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysLog_add', '新增'); //url , code, name
+			common.addTab("${server}sys/log/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysLog_add', '新增日志表'); //url , code, name
 		});
 	});
 </script>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<title>-${sessionScope.sysTitle}</title>
+<title>日志表-${sessionScope.sysTitle}</title>
 
 <div class="row">
 	<div class="col-xs-12">
@@ -50,15 +50,15 @@
 
 	//添加
 	$('#sysLogDialog_aceAdd').on('click',function() {
-		aceAdd("添加","${server}sys/log/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/log/doAdd?${_csrf.parameterName}=${_csrf.token}","sysLog_add_form","sysLogDialog");
+		aceAdd("添加日志表","${server}sys/log/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/log/doAdd?${_csrf.parameterName}=${_csrf.token}","sysLog_add_form","sysLogDialog");
 	});
 	//修改
 	function aceEditf(id) {
-		aceEdit(id,"修改","${server}sys/log/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/log/doEdit?${_csrf.parameterName}=${_csrf.token}","sysLog_edit_form","sysLogDialog");
+		aceEdit(id,"修改日志表","${server}sys/log/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/log/doEdit?${_csrf.parameterName}=${_csrf.token}","sysLog_edit_form","sysLogDialog");
 	}
 	//查看
 	function aceViewf(id) {
-		aceView(id,"查看","${server}sys/log/toView?${_csrf.parameterName}=${_csrf.token}");
+		aceView(id,"查看日志表","${server}sys/log/toView?${_csrf.parameterName}=${_csrf.token}");
 	}
 	
 	//删除

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/g4m" prefix="o" %>
 
-<title>-${sessionScope.sysTitle}</title>
+<title>系统配置表-${sessionScope.sysTitle}</title>
 
 <div class="layui-row">
 	<div class="layui-col-md12">
@@ -64,7 +64,7 @@
 			});
 		});
 		$("#sysConfig").off('click').on('click', function(){
-			common.addTab("${server}sys/config/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysConfig_add', '新增'); //url , code, name
+			common.addTab("${server}sys/config/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysConfig_add', '新增系统配置表'); //url , code, name
 		});
 	});
 </script>

@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.controller.access;
+package com.official.web.origin.controller.access;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;

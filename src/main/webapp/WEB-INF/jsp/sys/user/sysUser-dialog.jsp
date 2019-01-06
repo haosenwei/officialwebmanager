@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<title>-${sessionScope.sysTitle}</title>
+<title>用户表-${sessionScope.sysTitle}</title>
 
 <div class="row">
 	<div class="col-xs-12">
@@ -58,15 +58,15 @@
 
 	//添加
 	$('#sysUserDialog_aceAdd').on('click',function() {
-		aceAdd("添加","${server}sys/user/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/user/doAdd?${_csrf.parameterName}=${_csrf.token}","sysUser_add_form","sysUserDialog");
+		aceAdd("添加用户表","${server}sys/user/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/user/doAdd?${_csrf.parameterName}=${_csrf.token}","sysUser_add_form","sysUserDialog");
 	});
 	//修改
 	function aceEditf(id) {
-		aceEdit(id,"修改","${server}sys/user/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/user/doEdit?${_csrf.parameterName}=${_csrf.token}","sysUser_edit_form","sysUserDialog");
+		aceEdit(id,"修改用户表","${server}sys/user/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/user/doEdit?${_csrf.parameterName}=${_csrf.token}","sysUser_edit_form","sysUserDialog");
 	}
 	//查看
 	function aceViewf(id) {
-		aceView(id,"查看","${server}sys/user/toView?${_csrf.parameterName}=${_csrf.token}");
+		aceView(id,"查看用户表","${server}sys/user/toView?${_csrf.parameterName}=${_csrf.token}");
 	}
 	
 	//删除

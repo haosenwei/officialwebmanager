@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.service.sys;
+package com.official.web.origin.service.sys;
 
 import java.util.List;
 import java.util.Map;

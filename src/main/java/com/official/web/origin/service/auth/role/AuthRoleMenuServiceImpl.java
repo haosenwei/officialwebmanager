@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.service.auth.role;
+package com.official.web.origin.service.auth.role;
 
 import java.util.List;
 import java.util.Map;

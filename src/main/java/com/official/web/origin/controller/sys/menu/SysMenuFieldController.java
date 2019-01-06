@@ -1,4 +1,4 @@
-﻿package com.official.web.origin.controller.sys.menu;
+package com.official.web.origin.controller.sys.menu;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
