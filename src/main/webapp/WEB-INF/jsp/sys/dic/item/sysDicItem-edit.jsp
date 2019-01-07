@@ -15,7 +15,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">分组id</label>
 				<div class="layui-input-block">
-					<input type="text" name="groupId" placeholder="请输入分组id" value="${sysDicItem.groupId}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:select entityName="" valueKey="" valueName=""></o:select>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -46,8 +48,8 @@
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">状态</label>
-				<div class="layui-input-block">
-					<input type="text" name="status" placeholder="请输入状态" value="${sysDicItem.status}" autocomplete="off" class="layui-input">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="status" value="${sysDicItem.status}" lay-skin="switch">
 				</div>
 			</div>
 		</div>

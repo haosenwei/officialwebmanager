@@ -22,7 +22,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="typeDic" placeholder="请输入类型" value="${sysMenu.typeDic}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -38,15 +40,17 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">上级节点</label>
 				<div class="layui-input-block">
-					<input type="text" name="pid" placeholder="请输入上级节点" value="${sysMenu.pid}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:select entityName="" valueKey="" valueName=""></o:select>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">状态</label>
-				<div class="layui-input-block">
-					<input type="text" name="statusDic" placeholder="请输入状态" value="${sysMenu.statusDic}" autocomplete="off" class="layui-input">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="statusDic" value="${sysMenu.statusDic}" lay-skin="switch">
 				</div>
 			</div>
 		</div>
@@ -92,25 +96,11 @@
 		</div>
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
-				<label class="layui-form-label">创建时间</label>
-				<div class="layui-input-block">
-					<input type="text" name="createTime" placeholder="请输入创建时间" value="${sysMenu.createTime}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
 				<label class="layui-form-label">修改者</label>
 				<div class="layui-input-block">
-					<input type="text" name="modifyUerId" placeholder="请输入修改者" value="${sysMenu.modifyUerId}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">修改时间</label>
-				<div class="layui-input-block">
-					<input type="text" name="modifyTime" placeholder="请输入修改时间" value="${sysMenu.modifyTime}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:select entityName="" valueKey="" valueName=""></o:select>
+					</select>
 				</div>
 			</div>
 		</div>

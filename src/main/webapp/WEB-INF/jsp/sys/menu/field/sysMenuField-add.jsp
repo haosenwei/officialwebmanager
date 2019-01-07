@@ -30,7 +30,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">字段类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="dataType" placeholder="请输入字段类型" value="${sysMenuField.dataType}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -38,7 +40,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">字段类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="columnType" placeholder="请输入字段类型" value="${sysMenuField.columnType}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -53,8 +57,8 @@
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">主键标识</label>
-				<div class="layui-input-block">
-					<input type="text" name="keyDic" placeholder="请输入主键标识" value="${sysMenuField.keyDic}" autocomplete="off" class="layui-input">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="keyDic" value="${sysMenuField.keyDic}" lay-skin="switch">
 				</div>
 			</div>
 		</div>
@@ -62,7 +66,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">页面类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="jspTypeDic" placeholder="请输入页面类型" value="${sysMenuField.jspTypeDic}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -86,15 +92,17 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">列表页面展示</label>
 				<div class="layui-input-block">
-					<input type="text" name="listTypeDic" placeholder="请输入列表页面展示" value="${sysMenuField.listTypeDic}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">新建页面是否可以修改</label>
-				<div class="layui-input-block">
-					<input type="text" name="addIsEdit" placeholder="请输入新建页面是否可以修改" value="${sysMenuField.addIsEdit}" autocomplete="off" class="layui-input">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="addIsEdit" value="${sysMenuField.addIsEdit}" lay-skin="switch">
 				</div>
 			</div>
 		</div>
@@ -102,7 +110,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">新增页面展示</label>
 				<div class="layui-input-block">
-					<input type="text" name="addTypeDic" placeholder="请输入新增页面展示" value="${sysMenuField.addTypeDic}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -110,15 +120,17 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">详情页面展示</label>
 				<div class="layui-input-block">
-					<input type="text" name="viewTypeDic" placeholder="请输入详情页面展示" value="${sysMenuField.viewTypeDic}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">修改页面是否可修改</label>
-				<div class="layui-input-block">
-					<input type="text" name="editIsEdit" placeholder="请输入修改页面是否可修改" value="${sysMenuField.editIsEdit}" autocomplete="off" class="layui-input">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="editIsEdit" value="${sysMenuField.editIsEdit}" lay-skin="switch">
 				</div>
 			</div>
 		</div>
@@ -126,7 +138,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">修改页面类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="editTypeDic" placeholder="请输入修改页面类型" value="${sysMenuField.editTypeDic}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>

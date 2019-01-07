@@ -30,8 +30,8 @@
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">状态</label>
-				<div class="layui-input-block">
-					<input type="text" name="status" placeholder="请输入状态" value="${sysDicGroup.status}" autocomplete="off" class="layui-input">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="status" value="${sysDicGroup.status}" lay-skin="switch">
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="type" placeholder="请输入类型" value="${sysDicGroup.type}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>

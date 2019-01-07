@@ -39,7 +39,9 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">类型</label>
 				<div class="layui-input-block">
-					<input type="text" name="type" placeholder="请输入类型" value="${sysConfig.type}" autocomplete="off" class="layui-input">
+					<select name="city" lay-verify="required">
+						<o:SysDic key="sys_menu"></o:SysDic>
+					</select>
 				</div>
 			</div>
 		</div>
