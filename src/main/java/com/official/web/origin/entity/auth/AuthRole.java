@@ -29,6 +29,7 @@ public class AuthRole implements Serializable {
 	/** 备注 */
 	private String remark;
 	
+	
 	/** get id ***/
 	public Long getId() {
 		return id;
@@ -38,6 +39,7 @@ public class AuthRole implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 编码 ***/
 	public String getCode() {
 		return code;
@@ -47,6 +49,7 @@ public class AuthRole implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
 	/** get 名称 ***/
 	public String getName() {
 		return name;
@@ -56,6 +59,7 @@ public class AuthRole implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/** get 主要职责 ***/
 	public String getMajorDuty() {
 		return majorDuty;
@@ -65,6 +69,7 @@ public class AuthRole implements Serializable {
 	public void setMajorDuty(String majorDuty) {
 		this.majorDuty = majorDuty;
 	}
+	
 	/** get 备注 ***/
 	public String getRemark() {
 		return remark;

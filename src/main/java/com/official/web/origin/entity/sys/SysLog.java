@@ -27,7 +27,8 @@ public class SysLog implements Serializable {
 	private String dataJson;
 	
 	/**  */
-	private Date createTime;
+	private Date createTime = CURRENT_TIMESTAMP ;
+	
 	
 	/** get  ***/
 	public Long getId() {
@@ -38,6 +39,7 @@ public class SysLog implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get  ***/
 	public String getTableName() {
 		return tableName;
@@ -47,6 +49,7 @@ public class SysLog implements Serializable {
 	public void setTableName(String tableName) {
 		this.tableName = tableName;
 	}
+	
 	/** get  ***/
 	public Long getValId() {
 		return valId;
@@ -56,6 +59,7 @@ public class SysLog implements Serializable {
 	public void setValId(Long valId) {
 		this.valId = valId;
 	}
+	
 	/** get  ***/
 	public String getDataJson() {
 		return dataJson;
@@ -65,7 +69,9 @@ public class SysLog implements Serializable {
 	public void setDataJson(String dataJson) {
 		this.dataJson = dataJson;
 	}
+	
 	/** get  ***/
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getCreateTime() {
 		return createTime;
 	}

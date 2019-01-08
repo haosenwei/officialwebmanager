@@ -23,6 +23,7 @@ public class AuthRoleMenu implements Serializable {
 	/** 角色id */
 	private Long roleId;
 	
+	
 	/** get 主键 ***/
 	public Long getId() {
 		return id;
@@ -32,6 +33,7 @@ public class AuthRoleMenu implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 菜单id ***/
 	public Long getMenuId() {
 		return menuId;
@@ -41,6 +43,7 @@ public class AuthRoleMenu implements Serializable {
 	public void setMenuId(Long menuId) {
 		this.menuId = menuId;
 	}
+	
 	/** get 角色id ***/
 	public Long getRoleId() {
 		return roleId;

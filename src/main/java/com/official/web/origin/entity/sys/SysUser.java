@@ -53,6 +53,7 @@ public class SysUser implements Serializable {
 	/**  */
 	private Long modifyUserId;
 	
+	
 	/** get id ***/
 	public Long getId() {
 		return id;
@@ -62,6 +63,7 @@ public class SysUser implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 姓名 ***/
 	public String getName() {
 		return name;
@@ -71,6 +73,7 @@ public class SysUser implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/** get  ***/
 	public String getCode() {
 		return code;
@@ -80,6 +83,7 @@ public class SysUser implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
 	/** get  ***/
 	public String getUsername() {
 		return username;
@@ -89,6 +93,7 @@ public class SysUser implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 	/** get  ***/
 	public String getPassword() {
 		return password;
@@ -98,6 +103,7 @@ public class SysUser implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	/** get  ***/
 	public String getEmail() {
 		return email;
@@ -107,6 +113,7 @@ public class SysUser implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	/** get  ***/
 	public String getTel() {
 		return tel;
@@ -116,6 +123,7 @@ public class SysUser implements Serializable {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
 	/** get  ***/
 	public int getAge() {
 		return age;
@@ -125,6 +133,7 @@ public class SysUser implements Serializable {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
 	/** get  ***/
 	public Long getSysOrgId() {
 		return sysOrgId;
@@ -134,6 +143,7 @@ public class SysUser implements Serializable {
 	public void setSysOrgId(Long sysOrgId) {
 		this.sysOrgId = sysOrgId;
 	}
+	
 	/** get  ***/
 	public Long getOwnerId() {
 		return ownerId;
@@ -143,7 +153,9 @@ public class SysUser implements Serializable {
 	public void setOwnerId(Long ownerId) {
 		this.ownerId = ownerId;
 	}
+	
 	/** get  ***/
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -152,7 +164,9 @@ public class SysUser implements Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	
 	/** get  ***/
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getModifyTime() {
 		return modifyTime;
 	}
@@ -161,6 +175,7 @@ public class SysUser implements Serializable {
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
 	}
+	
 	/** get  ***/
 	public Long getModifyUserId() {
 		return modifyUserId;

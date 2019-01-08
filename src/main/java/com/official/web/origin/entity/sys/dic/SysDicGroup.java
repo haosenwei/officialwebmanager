@@ -32,6 +32,7 @@ public class SysDicGroup implements Serializable {
 	/** 类型 */
 	private int type;
 	
+	
 	/** get 主键 ***/
 	public Long getId() {
 		return id;
@@ -41,6 +42,7 @@ public class SysDicGroup implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 名称 ***/
 	public String getName() {
 		return name;
@@ -50,6 +52,7 @@ public class SysDicGroup implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/** get 编码 ***/
 	public String getCode() {
 		return code;
@@ -59,6 +62,7 @@ public class SysDicGroup implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
 	/** get 状态 ***/
 	public int getStatus() {
 		return status;
@@ -68,6 +72,7 @@ public class SysDicGroup implements Serializable {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	
 	/** get 备注 ***/
 	public String getRemark() {
 		return remark;
@@ -77,6 +82,7 @@ public class SysDicGroup implements Serializable {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	
 	/** get 类型 ***/
 	public int getType() {
 		return type;

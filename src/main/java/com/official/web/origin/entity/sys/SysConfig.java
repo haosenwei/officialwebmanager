@@ -29,6 +29,7 @@ public class SysConfig implements Serializable {
 	/** 类型 */
 	private String type;
 	
+	
 	/** get 主键 ***/
 	public Long getId() {
 		return id;
@@ -38,6 +39,7 @@ public class SysConfig implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 名称 ***/
 	public String getName() {
 		return name;
@@ -47,6 +49,7 @@ public class SysConfig implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/** get 描述 ***/
 	public String getDescription() {
 		return description;
@@ -56,6 +59,7 @@ public class SysConfig implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	/** get 值 ***/
 	public String getVal() {
 		return val;
@@ -65,6 +69,7 @@ public class SysConfig implements Serializable {
 	public void setVal(String val) {
 		this.val = val;
 	}
+	
 	/** get 类型 ***/
 	public String getType() {
 		return type;

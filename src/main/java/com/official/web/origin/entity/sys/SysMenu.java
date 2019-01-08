@@ -56,6 +56,7 @@ public class SysMenu implements Serializable {
 	/** 修改时间 */
 	private Date modifyTime;
 	
+	
 	/** get  ***/
 	public Long getId() {
 		return id;
@@ -65,6 +66,7 @@ public class SysMenu implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 编码 ***/
 	public String getCode() {
 		return code;
@@ -74,6 +76,7 @@ public class SysMenu implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
 	/** get 类型 ***/
 	public String getTypeDic() {
 		return typeDic;
@@ -83,6 +86,7 @@ public class SysMenu implements Serializable {
 	public void setTypeDic(String typeDic) {
 		this.typeDic = typeDic;
 	}
+	
 	/** get 菜单名称 ***/
 	public String getName() {
 		return name;
@@ -92,6 +96,7 @@ public class SysMenu implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/** get 上级节点 ***/
 	public Long getPid() {
 		return pid;
@@ -101,6 +106,7 @@ public class SysMenu implements Serializable {
 	public void setPid(Long pid) {
 		this.pid = pid;
 	}
+	
 	/** get 状态 ***/
 	public String getStatusDic() {
 		return statusDic;
@@ -110,6 +116,7 @@ public class SysMenu implements Serializable {
 	public void setStatusDic(String statusDic) {
 		this.statusDic = statusDic;
 	}
+	
 	/** get 地址 ***/
 	public String getUrl() {
 		return url;
@@ -119,6 +126,7 @@ public class SysMenu implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
 	/** get 路径 ***/
 	public String getPath() {
 		return path;
@@ -128,6 +136,7 @@ public class SysMenu implements Serializable {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	
 	/** get 图标 ***/
 	public String getIcon() {
 		return icon;
@@ -137,6 +146,7 @@ public class SysMenu implements Serializable {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+	
 	/** get 排序 ***/
 	public int getSort() {
 		return sort;
@@ -146,6 +156,7 @@ public class SysMenu implements Serializable {
 	public void setSort(int sort) {
 		this.sort = sort;
 	}
+	
 	/** get 备注 ***/
 	public String getRemark() {
 		return remark;
@@ -155,7 +166,9 @@ public class SysMenu implements Serializable {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	
 	/** get 创建时间 ***/
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -164,6 +177,7 @@ public class SysMenu implements Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	
 	/** get 修改者 ***/
 	public Long getModifyUerId() {
 		return modifyUerId;
@@ -173,7 +187,9 @@ public class SysMenu implements Serializable {
 	public void setModifyUerId(Long modifyUerId) {
 		this.modifyUerId = modifyUerId;
 	}
+	
 	/** get 修改时间 ***/
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getModifyTime() {
 		return modifyTime;
 	}

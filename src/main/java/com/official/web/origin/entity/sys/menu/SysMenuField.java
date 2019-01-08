@@ -24,19 +24,19 @@ public class SysMenuField implements Serializable {
 	private String columnName;
 	
 	/** 字段类型 */
-	private String dataType;
+	private String dataType = "VARCHAR" ;
 	
 	/** 字段类型 */
 	private String columnType;
 	
 	/** 字段长度 */
-	private String flength;
+	private String flength = "50" ;
 	
 	/** 主键标识 */
 	private String keyDic;
 	
 	/** 页面类型 */
-	private String jspTypeDic;
+	private String jspTypeDic = "1" ;
 	
 	/** 评论 */
 	private String comment;
@@ -45,28 +45,29 @@ public class SysMenuField implements Serializable {
 	private String remark;
 	
 	/** 列表页面展示 */
-	private String listTypeDic;
+	private String listTypeDic = "1" ;
 	
 	/** 新建页面是否可以修改 */
-	private String addIsEdit;
+	private String addIsEdit = "1" ;
 	
 	/** 新增页面展示 */
-	private String addTypeDic;
+	private String addTypeDic = "1" ;
 	
 	/** 详情页面展示 */
-	private String viewTypeDic;
+	private String viewTypeDic = "1" ;
 	
 	/** 修改页面是否可修改 */
-	private String editIsEdit;
+	private String editIsEdit = "1" ;
 	
 	/** 修改页面类型 */
-	private String editTypeDic;
+	private String editTypeDic = "1" ;
 	
 	/** 排序 */
 	private String orderBy;
 	
 	/** 默认值 */
 	private String defaultValue;
+	
 	
 	/** get  ***/
 	public Long getId() {
@@ -77,6 +78,7 @@ public class SysMenuField implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 表主键 ***/
 	public Long getMenuId() {
 		return menuId;
@@ -86,6 +88,7 @@ public class SysMenuField implements Serializable {
 	public void setMenuId(Long menuId) {
 		this.menuId = menuId;
 	}
+	
 	/** get 名称(英文),分隔符_ ***/
 	public String getColumnName() {
 		return columnName;
@@ -95,6 +98,7 @@ public class SysMenuField implements Serializable {
 	public void setColumnName(String columnName) {
 		this.columnName = columnName;
 	}
+	
 	/** get 字段类型 ***/
 	public String getDataType() {
 		return dataType;
@@ -104,6 +108,7 @@ public class SysMenuField implements Serializable {
 	public void setDataType(String dataType) {
 		this.dataType = dataType;
 	}
+	
 	/** get 字段类型 ***/
 	public String getColumnType() {
 		return columnType;
@@ -113,6 +118,7 @@ public class SysMenuField implements Serializable {
 	public void setColumnType(String columnType) {
 		this.columnType = columnType;
 	}
+	
 	/** get 字段长度 ***/
 	public String getFlength() {
 		return flength;
@@ -122,6 +128,7 @@ public class SysMenuField implements Serializable {
 	public void setFlength(String flength) {
 		this.flength = flength;
 	}
+	
 	/** get 主键标识 ***/
 	public String getKeyDic() {
 		return keyDic;
@@ -131,6 +138,7 @@ public class SysMenuField implements Serializable {
 	public void setKeyDic(String keyDic) {
 		this.keyDic = keyDic;
 	}
+	
 	/** get 页面类型 ***/
 	public String getJspTypeDic() {
 		return jspTypeDic;
@@ -140,6 +148,7 @@ public class SysMenuField implements Serializable {
 	public void setJspTypeDic(String jspTypeDic) {
 		this.jspTypeDic = jspTypeDic;
 	}
+	
 	/** get 评论 ***/
 	public String getComment() {
 		return comment;
@@ -149,6 +158,7 @@ public class SysMenuField implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	
 	/** get 备注 ***/
 	public String getRemark() {
 		return remark;
@@ -158,6 +168,7 @@ public class SysMenuField implements Serializable {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	
 	/** get 列表页面展示 ***/
 	public String getListTypeDic() {
 		return listTypeDic;
@@ -167,6 +178,7 @@ public class SysMenuField implements Serializable {
 	public void setListTypeDic(String listTypeDic) {
 		this.listTypeDic = listTypeDic;
 	}
+	
 	/** get 新建页面是否可以修改 ***/
 	public String getAddIsEdit() {
 		return addIsEdit;
@@ -176,6 +188,7 @@ public class SysMenuField implements Serializable {
 	public void setAddIsEdit(String addIsEdit) {
 		this.addIsEdit = addIsEdit;
 	}
+	
 	/** get 新增页面展示 ***/
 	public String getAddTypeDic() {
 		return addTypeDic;
@@ -185,6 +198,7 @@ public class SysMenuField implements Serializable {
 	public void setAddTypeDic(String addTypeDic) {
 		this.addTypeDic = addTypeDic;
 	}
+	
 	/** get 详情页面展示 ***/
 	public String getViewTypeDic() {
 		return viewTypeDic;
@@ -194,6 +208,7 @@ public class SysMenuField implements Serializable {
 	public void setViewTypeDic(String viewTypeDic) {
 		this.viewTypeDic = viewTypeDic;
 	}
+	
 	/** get 修改页面是否可修改 ***/
 	public String getEditIsEdit() {
 		return editIsEdit;
@@ -203,6 +218,7 @@ public class SysMenuField implements Serializable {
 	public void setEditIsEdit(String editIsEdit) {
 		this.editIsEdit = editIsEdit;
 	}
+	
 	/** get 修改页面类型 ***/
 	public String getEditTypeDic() {
 		return editTypeDic;
@@ -212,6 +228,7 @@ public class SysMenuField implements Serializable {
 	public void setEditTypeDic(String editTypeDic) {
 		this.editTypeDic = editTypeDic;
 	}
+	
 	/** get 排序 ***/
 	public String getOrderBy() {
 		return orderBy;
@@ -221,6 +238,7 @@ public class SysMenuField implements Serializable {
 	public void setOrderBy(String orderBy) {
 		this.orderBy = orderBy;
 	}
+	
 	/** get 默认值 ***/
 	public String getDefaultValue() {
 		return defaultValue;

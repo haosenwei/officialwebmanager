@@ -23,6 +23,7 @@ public class AuthRoleUser implements Serializable {
 	/** 角色 */
 	private Long roleId;
 	
+	
 	/** get  ***/
 	public Long getId() {
 		return id;
@@ -32,6 +33,7 @@ public class AuthRoleUser implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 用户id ***/
 	public Long getUserId() {
 		return userId;
@@ -41,6 +43,7 @@ public class AuthRoleUser implements Serializable {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+	
 	/** get 角色 ***/
 	public Long getRoleId() {
 		return roleId;

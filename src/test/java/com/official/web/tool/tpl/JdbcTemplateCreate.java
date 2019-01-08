@@ -23,15 +23,15 @@ public class JdbcTemplateCreate {
 	 */
 	public static void main(String[] args) {
 		// 查询所有的表结构
-		List<SysMenu> querySysMenu = querySysMenu();
-		for (SysMenu sysMenu : querySysMenu) {
-			createByTableName(sysMenu.getCode());
-		}
-		// String tableName = "sys_menu";
-		// String[] split = tableName.split(",");
-		// for (String string : split) {
-		// createByTableName(string);
-		// }
+		 List<SysMenu> querySysMenu = querySysMenu();
+		 for (SysMenu sysMenu : querySysMenu) {
+		 createByTableName(sysMenu.getCode());
+		 }
+//		String tableName = "sys_menu";
+//		String[] split = tableName.split(",");
+//		for (String string : split) {
+//			createByTableName(string);
+//		}
 	}
 
 	private static void createByTableName(String string) {
@@ -90,6 +90,7 @@ class MyRowMapper implements RowMapper<SysTableField> {
 		return familyMember;
 	}
 }
+
 class SysMenuMapper implements RowMapper<SysMenu> {
 	@Override
 	public SysMenu mapRow(ResultSet resultSet, int i) throws SQLException {

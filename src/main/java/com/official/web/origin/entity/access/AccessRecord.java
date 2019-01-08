@@ -44,6 +44,7 @@ public class AccessRecord implements Serializable {
 	/** 访问时间 */
 	private Date browsingTime;
 	
+	
 	/** get 主键 ***/
 	public int getId() {
 		return id;
@@ -53,6 +54,7 @@ public class AccessRecord implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	/** get 请求url ***/
 	public String getRequestUrl() {
 		return requestUrl;
@@ -62,6 +64,7 @@ public class AccessRecord implements Serializable {
 	public void setRequestUrl(String requestUrl) {
 		this.requestUrl = requestUrl;
 	}
+	
 	/** get 请求资源 ***/
 	public String getRequestUri() {
 		return requestUri;
@@ -71,6 +74,7 @@ public class AccessRecord implements Serializable {
 	public void setRequestUri(String requestUri) {
 		this.requestUri = requestUri;
 	}
+	
 	/** get 查询参数 ***/
 	public String getQueryString() {
 		return queryString;
@@ -80,6 +84,7 @@ public class AccessRecord implements Serializable {
 	public void setQueryString(String queryString) {
 		this.queryString = queryString;
 	}
+	
 	/** get 访问者ip ***/
 	public String getRemoteAddr() {
 		return remoteAddr;
@@ -89,6 +94,7 @@ public class AccessRecord implements Serializable {
 	public void setRemoteAddr(String remoteAddr) {
 		this.remoteAddr = remoteAddr;
 	}
+	
 	/** get 访问者的主机 ***/
 	public String getRemoteHost() {
 		return remoteHost;
@@ -98,6 +104,7 @@ public class AccessRecord implements Serializable {
 	public void setRemoteHost(String remoteHost) {
 		this.remoteHost = remoteHost;
 	}
+	
 	/** get 访问者浏览器 ***/
 	public String getBrowser() {
 		return browser;
@@ -107,6 +114,7 @@ public class AccessRecord implements Serializable {
 	public void setBrowser(String browser) {
 		this.browser = browser;
 	}
+	
 	/** get 访问者浏览器版本 ***/
 	public String getBrowserVersion() {
 		return browserVersion;
@@ -116,6 +124,7 @@ public class AccessRecord implements Serializable {
 	public void setBrowserVersion(String browserVersion) {
 		this.browserVersion = browserVersion;
 	}
+	
 	/** get 操作系统 ***/
 	public String getOperatingSystem() {
 		return operatingSystem;
@@ -125,7 +134,9 @@ public class AccessRecord implements Serializable {
 	public void setOperatingSystem(String operatingSystem) {
 		this.operatingSystem = operatingSystem;
 	}
+	
 	/** get 访问时间 ***/
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getBrowsingTime() {
 		return browsingTime;
 	}

@@ -45,6 +45,8 @@ public class TableField {
 	private String keyDic;
 	
 	private String jspTypeDic;
+	
+	private String defaultValue;
 
 	public TableField(SysTableField sysTableField) {
 
@@ -85,10 +87,12 @@ public class TableField {
 		keyDic = sysTableField.getKeyDic();
 		
 		jspTypeDic = sysTableField.getJspTypeDic();
+		
+		defaultValue = sysTableField.getDefaultValue();
 	}
 
 	public String getFormat() {
-		if (javaType.toUpperCase().contains("TIME")) {
+		if (javaType.toUpperCase().contains("DATE".toUpperCase())) {
 			return "@DateTimeFormat(pattern=\"yyyy-MM-dd HH:mm:ss\")";
 		}
 		return null;
@@ -208,6 +212,14 @@ public class TableField {
 
 	public void setJspTypeDic(String jspTypeDic) {
 		this.jspTypeDic = jspTypeDic;
+	}
+
+	public String getDefaultValue() {
+		return defaultValue;
+	}
+
+	public void setDefaultValue(String defaultValue) {
+		this.defaultValue = defaultValue;
 	}
 
 }

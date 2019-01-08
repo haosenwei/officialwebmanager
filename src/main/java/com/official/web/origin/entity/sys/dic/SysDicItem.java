@@ -35,6 +35,7 @@ public class SysDicItem implements Serializable {
 	/** 排序 */
 	private int sort;
 	
+	
 	/** get 主键 ***/
 	public Long getId() {
 		return id;
@@ -44,6 +45,7 @@ public class SysDicItem implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	/** get 分组id ***/
 	public Long getGroupId() {
 		return groupId;
@@ -53,6 +55,7 @@ public class SysDicItem implements Serializable {
 	public void setGroupId(Long groupId) {
 		this.groupId = groupId;
 	}
+	
 	/** get 名称 ***/
 	public String getCode() {
 		return code;
@@ -62,6 +65,7 @@ public class SysDicItem implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
 	/** get 编码 ***/
 	public String getName() {
 		return name;
@@ -71,6 +75,7 @@ public class SysDicItem implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/** get 备注 ***/
 	public String getRemark() {
 		return remark;
@@ -80,6 +85,7 @@ public class SysDicItem implements Serializable {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	
 	/** get 状态 ***/
 	public int getStatus() {
 		return status;
@@ -89,6 +95,7 @@ public class SysDicItem implements Serializable {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	
 	/** get 排序 ***/
 	public int getSort() {
 		return sort;
