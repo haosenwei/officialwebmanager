@@ -16,10 +16,11 @@ public class ${EntityName} implements Serializable {
 	<#list list as obj>
 	
 	/** ${obj.comment!} */
-	private ${obj.javaType} ${obj.fieldName};
+	private ${obj.javaType} ${obj.fieldName}<#if obj.defaultValue?? && obj.defaultValue != "" > = <#if obj.javaType == "String" >"</#if>${obj.defaultValue}<#if obj.javaType == 'String' >"</#if> </#if>;
 	</#list>
 	
 	<#list list as obj>
+	
 	/** get ${obj.comment} ***/<#if obj.format?? >
 	${obj.format}</#if>
 	public ${obj.javaType} get${obj.fieldNameU}() {
