@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>开始使用layui</title>
 <link rel="stylesheet" href="/static/layui/css/layui.css">
+<link rel="stylesheet" href="/static/ztree/css/zTreeStyle/zTreeStyle.css">
 </head>
 <body class="layui-layout-body">
 	<div class="layui-layout layui-layout-admin">
@@ -89,16 +89,19 @@
 		</div>
 	</div>
 
+	<script src="/static/js/jquery-3.3.1.min.js"></script>
 	<script src="/static/layui/layui.js"></script>
 	<script>
 		//一般直接写在一个js文件中
 		layui.config({
 			base : '/static/js/module/'
-		}).use([ 'layer', 'form', 'element','sysMenu'],
+		}).use([ 'layer', 'form', 'element','sysMenu','jquery'],
 		function() {
+			jQuery = layui.jquery;
 			var sysMenu = layui.sysMenu;
 			sysMenu.loadMenu();
 		});
 	</script>
+	<script src="/static/ztree/js/jquery.ztree.all.min.js"></script>
 </body>
 </html>

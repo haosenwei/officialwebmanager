@@ -72,6 +72,33 @@ layui.define([ "layer", "jquery", "table" ], function(exports) {
 					layer.msg(msg);
 				}
 			});
+		},
+		//弹出框,选择机构,选择用户,选择权限等等
+		openLayer : function(url,option){
+			debugger;
+			var btn = (option && option.btn)?option.btn:['关闭'];
+			var layerOption = {
+					type: 1,
+					btn: btn
+			};
+			$.each(btn,function(index ,value){
+				if(index == 0){
+					var btnYes = (option && option.yes)?option.yes:function(index, layero){};
+					layerOption.yes = btnYes;
+				}else{
+					//第二个按钮,第三个按钮
+					var name = 'btn'+index;
+					var btnFuc = (option && option[name])?option[name]:function(index, layero){};
+					layerOption.name = btnFuc;
+				}
+			});
+			
+			
+			//Ajax获取
+			$.get(url, function(str){
+				layerOption.content = str;
+				layer.open(layerOption);
+			});
 		}
 	};
 	exports("common", obj);

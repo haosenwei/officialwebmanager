@@ -18,6 +18,7 @@
 				</div>
 				<div class="layui-col-md4">
 					<a id="sysMenu_search_btn" class="layui-btn">搜索</a>
+					<a id="sysMenu_search_test" class="layui-btn">测试按钮</a>
 					<a id="sysMenu_reset" class="layui-btn">重置</a>
 					<a id="sysMenu_add" class="layui-btn">新增</a> <a id="sysMenu_dels" class="layui-btn">删除</a>
 				</div>
@@ -74,6 +75,17 @@
 		});
 		$("#sysMenu_add").off('click').on('click', function(){
 			common.addTab("${server}sys/menu/toAdd?${_csrf.parameterName}=${_csrf.token}", 'sysMenu_add', '新增菜单表'); //url , code, name
+		});
+		$("#sysMenu_search_test").off('click').on('click', function(){
+			common.openLayer("${server}selectDic",{'btn':['开始','关闭','3'],'yes':function(){
+				alert("1");
+			},'btn1':function(){
+				alert(2);
+				return false;
+			},'btn2':function(){
+				alert(3);
+				return false;
+			}}); //url , code, name
 		});
 	});
 </script>
