@@ -27,7 +27,7 @@ public class SysLog implements Serializable {
 	private String dataJson;
 	
 	/**  */
-	private Date createTime = CURRENT_TIMESTAMP ;
+	private Date createTime = new Date() ;
 	
 	
 	/** get  ***/

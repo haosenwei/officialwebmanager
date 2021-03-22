@@ -24,11 +24,11 @@ layui.define([ "layer", "jquery" ],
 					var code = obj.getUrlParam('code');
 					var aHtml = $("<a>", {
 						"class" : "menu",
-						"data-value" : value.url,
+						"data-value" : value.id,
 						"href" : "javascript:;",
 						"text" : value.name,
 						"click" : function() {
-							obj.loadHtml(value.url, value.name, value.code);
+							obj.loadHtml(value.id, value.name, value.code);
 						}
 					});
 					if(type=='dd'){
@@ -39,7 +39,7 @@ layui.define([ "layer", "jquery" ],
 						li.append(aHtml);
 					}
 					if (code && value.code == code) {
-						obj.loadHtml(value.url, value.name, value.code);
+						obj.loadHtml(value.id, value.name, value.code);
 					}
 				},
 				addMenu : function(objLi, value) {
@@ -59,7 +59,7 @@ layui.define([ "layer", "jquery" ],
 							// "href":"javascript:;",
 							// "text":valueChild.name,
 							// "click":function(){
-							// obj.loadHtml(valueChild.url,valueChild.name,valueChild.code);
+							// obj.loadHtml(valueChild.id,valueChild.name,valueChild.code);
 							// }
 							// });
 							// ddObj.append(aHtml);
@@ -68,12 +68,12 @@ layui.define([ "layer", "jquery" ],
 					});
 					objLi.append(ddObj);
 				},
-				loadHtml : function(url, name, code) {
+				loadHtml : function(id, name, code) {
 					var isExit = $("li[lay-id='" + code + "']");
 					if (isExit.length > 0) {
 						element.tabChange('demo', code);
-					} else if (url) {
-						$.get(url + "/main", function(data) {
+					} else if (id) {
+						$.get("menu/" + id + "/main", function(data) {
 							element.tabAdd('demo', {
 								title : name,
 								content : data, // 支持传入html

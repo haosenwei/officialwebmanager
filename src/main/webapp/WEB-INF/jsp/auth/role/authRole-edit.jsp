@@ -1,16 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/g4m" prefix="o" %>
 <form class="layui-form" action="#">
-	<input name="" value="${authRole.}" type="hidden">
+	<input name="id" value="${authRole.id}" type="hidden">
 	<div class="layui-row">
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">id</label>
-				<div class="layui-input-block">
-					<input type="text" name="id" placeholder="请输入id" value="${authRole.id}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
 		<div class="layui-col-xs6">
 			<div class="layui-form-item">
 				<label class="layui-form-label">编码</label>
@@ -59,8 +51,9 @@
 	layui.use(['form','common'], function() {
 		var form = layui.form,common = layui.common;
 		//监听提交
-		form.on('submit(authRole_add)', function(data) {
-			common.ajaxTableData("${server}auth/role/doEdit?${_csrf.parameterName}=${_csrf.token}",data.field);
+		form.on('submit(authRole_edit)', function(data) {
+		    console.log(data.field);
+			common.doEdit("authRole","${server}auth/role/doEdit?${_csrf.parameterName}=${_csrf.token}",data.field);
 			return false;
 		});
 		form.render();

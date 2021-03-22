@@ -78,7 +78,7 @@
 		name = #{name},
 		major_duty = #{majorDuty},
 		remark = #{remark}
-		where
+		where id= #{id}
 	</update>
 	
 	<!-- 删除,null对象 -->

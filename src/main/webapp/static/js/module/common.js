@@ -24,6 +24,18 @@ layui.define([ "layer", "jquery", "table" ], function(exports) {
 				});
 			}
 		},
+		delTab : function(url, code, name) {
+			var isExit = $("li[lay-id='" + code + "']");
+			if (isExit.length > 0) {
+				element.tabDelete('demo', code);
+			}
+		},
+		doEdit : function(code,url, data) {
+			obj.ajaxTableData(url,data,function(){
+			    obj.delTab('demo', code+'_edit');
+            	$("#"+code+"_search_btn").click();
+			});
+		},
 		renderTable : function(code, url, colNames) {
 			table.render({
 				id : code+'TableTest',
@@ -31,6 +43,7 @@ layui.define([ "layer", "jquery", "table" ], function(exports) {
 				url : url // 数据接口
 				,page : true // 开启分页
 				,cols : colNames,
+				height:500,
 				method : 'post' // 如果无需自定义HTTP类型，可不加该参数
 				,request : {
 					pageName : 'curr' // 页码的参数名称，默认：page
@@ -43,12 +56,7 @@ layui.define([ "layer", "jquery", "table" ], function(exports) {
 				where : obj.getParam(code+'_search_form')
 			});
 		},
-		ajaxTableData : function(url, param,callback) {
-//			$('#'+name).validate();
-//			if(!$('#'+name).valid()){
-//				return false;
-//			}
-//			var param=$("#"+name).serialize();
+		ajaxTableData : function(url,param,callback) {
 			$.ajax({
 				type:'POST',
 				url: url,
@@ -75,7 +83,6 @@ layui.define([ "layer", "jquery", "table" ], function(exports) {
 		},
 		//弹出框,选择机构,选择用户,选择权限等等
 		openLayer : function(url,option){
-			debugger;
 			var btn = (option && option.btn)?option.btn:['关闭'];
 			var layerOption = {
 					type: 1,
@@ -92,8 +99,6 @@ layui.define([ "layer", "jquery", "table" ], function(exports) {
 					layerOption.name = btnFuc;
 				}
 			});
-			
-			
 			//Ajax获取
 			$.get(url, function(str){
 				layerOption.content = str;

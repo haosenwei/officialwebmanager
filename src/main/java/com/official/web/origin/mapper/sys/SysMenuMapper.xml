@@ -85,9 +85,7 @@
 	<!-- 根据 id 查询,1对象 -->
 	<select id="selectSysMenuById" parameterType="map" resultMap="SysMenuBean">
 		select <include refid="SysMenuSelectColumns" />
-		from sys_menu t
-		
-		
+		from sys_menu t where t.id = ${id}
 	</select>
 	
 	<!-- 查询所有,1对象 -->

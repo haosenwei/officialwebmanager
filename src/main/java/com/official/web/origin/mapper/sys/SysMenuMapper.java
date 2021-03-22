@@ -10,73 +10,83 @@ import com.official.web.origin.entity.sys.SysMenu;
 
 /**
  * ,1数据库接口类
- * @author hsw
  *
+ * @author hsw
  */
 @Mapper
 public interface SysMenuMapper {
-	/**
-	 * 根据id查询,1实体
-	 * @param id
-	 * @return
-	 */
-	public SysMenu selectSysMenuById(Long id);
+    /**
+     * 根据id查询,1实体
+     *
+     * @param id
+     * @return
+     */
+    public SysMenu selectSysMenuById(@Param("id") Long id);
 
-	/**
-	 * 查询所有,1实体
-	 * @return
-	 */
-	public List<SysMenu> selectSysMenuAll();
+    /**
+     * 查询所有,1实体
+     *
+     * @return
+     */
+    public List<SysMenu> selectSysMenuAll();
 
-	/**
-	 * 插入,1实体
-	 * @param sysMenuForm
-	 */
-	public void insertSysMenu(SysMenu sysMenuForm);
+    /**
+     * 插入,1实体
+     *
+     * @param sysMenuForm
+     */
+    public void insertSysMenu(SysMenu sysMenuForm);
 
-	/**
-	 * 更新,1实体
-	 * @param sysMenuForm
-	 */
-	public void updateSysMenu(SysMenu sysMenuForm);
+    /**
+     * 更新,1实体
+     *
+     * @param sysMenuForm
+     */
+    public void updateSysMenu(SysMenu sysMenuForm);
 
-	/**
-	 * 根据条件更新,1实体
-	 * @param condition
-	 */
-	public void updateSysMenuByCondition(Map<String, Object> condition);
+    /**
+     * 根据条件更新,1实体
+     *
+     * @param condition
+     */
+    public void updateSysMenuByCondition(Map<String, Object> condition);
 
-	/**
-	 * 删除,1实体
-	 * @param ids
-	 */
-	public void delSysMenuByIds(@Param("ids")String ids);
+    /**
+     * 删除,1实体
+     *
+     * @param ids
+     */
+    public void delSysMenuByIds(@Param("ids") String ids);
 
-	/**
-	 * 根据条件查询,1实体
-	 * @param map
-	 * @return
-	 */
-	public List<SysMenu> selectSysMenuByCondition(Map<String, Object> map);
+    /**
+     * 根据条件查询,1实体
+     *
+     * @param map
+     * @return
+     */
+    public List<SysMenu> selectSysMenuByCondition(Map<String, Object> map);
 
-	/**
-	 * 分页查询,1实体
-	 * @param map
-	 * @return
-	 */
-	public List<SysMenu> selectSysMenuByPager(Map<String, Object> map);
+    /**
+     * 分页查询,1实体
+     *
+     * @param map
+     * @return
+     */
+    public List<SysMenu> selectSysMenuByPager(Map<String, Object> map);
 
-	/**
-	 * 分页查询,1实体条数
-	 * @param condition
-	 * @return
-	 */
-	public int selectSysMenuCountByPager(Map<String, Object> condition);
+    /**
+     * 分页查询,1实体条数
+     *
+     * @param condition
+     * @return
+     */
+    public int selectSysMenuCountByPager(Map<String, Object> condition);
 
-	/**
-	 * sql查询,1实体
-	 * @param sql
-	 * @return
-	 */
-	public List<SysMenu> selectSysMenuBySql(@Param("sql")String sql);
+    /**
+     * sql查询,1实体
+     *
+     * @param sql
+     * @return
+     */
+    public List<SysMenu> selectSysMenuBySql(@Param("sql") String sql);
 }
