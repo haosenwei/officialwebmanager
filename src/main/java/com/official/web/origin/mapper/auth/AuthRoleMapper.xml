@@ -40,9 +40,7 @@
 	<!-- 根据 id 查询,null对象 -->
 	<select id="selectAuthRoleById" parameterType="map" resultMap="AuthRoleBean">
 		select <include refid="AuthRoleSelectColumns" />
-		from auth_role t
-		
-		
+		from auth_role t where t.id = #{id}
 	</select>
 	
 	<!-- 查询所有,null对象 -->

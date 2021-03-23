@@ -18,78 +18,75 @@ import com.official.web.util.SpringContext;
 @Component
 public class SelectDicTag extends TagSupport {
 
-	private String key;
-	private String value;
-	private String type = "all";
+    private String key;
+    private String value;
+    private String type = "all";
 
-	@Override
-	public int doStartTag() {
-		JspWriter out = pageContext.getOut();
-		// 查询所有的
-		System.out.println(key + "-" + value + "-" + type);
-		List<SysDicItem> list = getSysDicItems(key);
-		if (list == null) {
-			list = new ArrayList<SysDicItem>();
-		}
-		StringBuffer str = new StringBuffer();
-		for (int i = 0; i < list.size(); i++) {
-			SysDicItem sysDicItem = list.get(i);
-			String select = "";
-			if (StringUtils.isNotBlank(value) && value.equals(sysDicItem.getName())) {
-				select = "selected=\"selected\"";
-			}
-			str.append("<option value=\"" + sysDicItem.getName() + "\" " + select + ">" + sysDicItem.getName());
-		}
-		try {
-			out.write(str.toString());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return 0;
-	}
+    @Override
+    public int doStartTag() {
+        JspWriter out = pageContext.getOut();
+        // 查询所有的
+        System.out.println(key + "-" + value + "-" + type);
+        List<SysDicItem> list = getSysDicItems(key);
+        if (list == null) {
+            list = new ArrayList<SysDicItem>();
+        }
+        StringBuffer str = new StringBuffer();
+        for (int i = 0; i < list.size(); i++) {
+            SysDicItem sysDicItem = list.get(i);
+            String select = "";
+            if (StringUtils.isNotBlank(value) && value.equals(sysDicItem.getName())) {
+                select = "selected=\"selected\"";
+            }
+            str.append("<option value=\"" + sysDicItem.getName() + "\" " + select + ">" + sysDicItem.getName());
+        }
+        try {
+            out.write(str.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
-	private List<SysDicItem> getSysDicItems(String key2) {
-		try {
-			SysDicItemServiceImpl service = (SysDicItemServiceImpl) SpringContext.getApplicationContext()
-					.getBean("sysDicItemServiceImpl");
-			// list = service.findSysDicItemByCondition(condition);
-			return service.findEntityAll();
-		} catch (Exception e) {
-			System.out.println("-------err-------");
-		}
-		return null;
-	}
+    private List<SysDicItem> getSysDicItems(String key2) {
+        try {
+            SysDicItemServiceImpl service = (SysDicItemServiceImpl) SpringContext.getApplicationContext().getBean("sysDicItemServiceImpl");
+            // list = service.findSysDicItemByCondition(condition);
+            return service.findEntityAll();
+        } catch (Exception e) {
+            System.out.println("-------err-------");
+        }
+        return null;
+    }
 
-	@Override
-	public int doEndTag() throws JspException {
+    @Override
+    public int doEndTag() throws JspException {
+        return super.doEndTag();
+    }
 
-		return super.doEndTag();
-	}
+    public String getKey() {
+        return key;
+    }
 
-	public String getKey() {
-		return key;
-	}
+    public void setKey(String key) {
+        this.key = key;
+    }
 
-	public void setKey(String key) {
-		this.key = key;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
 
-	
-	
 }

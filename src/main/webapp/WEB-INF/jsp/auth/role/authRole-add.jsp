@@ -2,46 +2,12 @@
 <%@ taglib uri="/g4m" prefix="o" %>
 <form class="layui-form" action="#">
 	<div class="layui-row">
-			<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">id</label>
-				<div class="layui-input-block">
-					<input type="text" name="id" placeholder="请输入id" value="${authRole.id}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">编码</label>
-				<div class="layui-input-block">
-					<input type="text" name="code" placeholder="请输入编码" value="${authRole.code}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">名称</label>
-				<div class="layui-input-block">
-					<input type="text" name="name" placeholder="请输入名称" value="${authRole.name}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">主要职责</label>
-				<div class="layui-input-block">
-					<input type="text" name="majorDuty" placeholder="请输入主要职责" value="${authRole.majorDuty}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
-		<div class="layui-col-xs6">
-			<div class="layui-form-item">
-				<label class="layui-form-label">备注</label>
-				<div class="layui-input-block">
-					<input type="text" name="remark" placeholder="请输入备注" value="${authRole.remark}" autocomplete="off" class="layui-input">
-				</div>
-			</div>
-		</div>
+	    <o:input type="1" value="1" fieldName="id" fieldComment="主键" required="false"/>
+	    <o:input type="2" value="1" fieldName="password" fieldComment="密码" required="false"/>
+	    <o:input type="3" value="1" fieldName="name" fieldComment="名称" required="false"/>
+	    <o:input type="4" value="1" fieldName="select" fieldComment="选择" required="false"/>
+	    <o:input type="5" value="1" fieldName="open" fieldComment="开关" required="false"/>
+	    <o:input type="6" value="1" fieldName="radio" fieldComment="单选" required="false"/>
 		<div class="layui-col-xs12">
 			<div class="layui-form-item">
 				<div class="layui-input-block">
